@@ -967,7 +967,9 @@ const Brands = () => {
       </div>
     </section>
   );
-}; const Location = () => {
+};
+
+const Location = () => {
   return (
     <section id="location" className="bg-dhaba-mustard pt-16 pb-0 md:py-24 text-dhaba-dark overflow-hidden border-t-4 md:border-y-4 border-dhaba-dark">
       <div className="w-full px-6 md:px-24 pb-0 md:pb-0">
