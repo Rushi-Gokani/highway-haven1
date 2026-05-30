@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -35,4 +34,211 @@
     background-image: radial-gradient(var(--color-dhaba-saffron) 0.5px, transparent 0.5px);
     background-size: 10px 10px;
   }
+
+  .sunburst-rays {
+    background: conic-gradient(
+      from 0deg,
+      #eab308 0deg 15deg,
+      #facc15 15deg 30deg,
+      #eab308 30deg 45deg,
+      #facc15 45deg 60deg,
+      #eab308 60deg 75deg,
+      #facc15 75deg 90deg,
+      #eab308 90deg 105deg,
+      #facc15 105deg 120deg,
+      #eab308 120deg 135deg,
+      #facc15 135deg 150deg,
+      #eab308 150deg 165deg,
+      #facc15 165deg 180deg,
+      #eab308 180deg 195deg,
+      #facc15 195deg 210deg,
+      #eab308 210deg 225deg,
+      #facc15 225deg 240deg,
+      #eab308 240deg 255deg,
+      #facc15 255deg 270deg,
+      #eab308 270deg 285deg,
+      #facc15 285deg 300deg,
+      #eab308 300deg 315deg,
+      #facc15 315deg 330deg,
+      #eab308 330deg 345deg,
+      #facc15 345deg 360deg
+    );
+  }
+
+  @keyframes rotate-sunburst {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: rotate-sunburst 180s linear infinite;
+  }
+
+  @keyframes sign-blink {
+    0%, 100% {
+      opacity: 1;
+      filter: drop-shadow(0 0 15px rgba(254, 240, 138, 0.8));
+    }
+    45%, 55% {
+      opacity: 0.9;
+      filter: drop-shadow(0 0 3px rgba(254, 240, 138, 0.3));
+    }
+    50% {
+      opacity: 0.7;
+      filter: drop-shadow(0 0 1px rgba(254, 240, 138, 0.1));
+    }
+  }
+
+  .animate-sign-blink {
+    animation: sign-blink 3s infinite;
+  }
+
+  @keyframes logo-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.75)) drop-shadow(0 0 25px rgba(185, 28, 28, 0.45));
+    }
+    50% {
+      filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 45px rgba(185, 28, 28, 0.65));
+    }
+  }
+
+  .animate-logo-glow {
+    animation: logo-glow 4s infinite ease-in-out;
+  }
+
+  .hazard-strip {
+    background: repeating-linear-gradient(
+      -45deg,
+      #EAB308,
+      #EAB308 8px,
+      #1C1917 8px,
+      #1C1917 16px
+    );
+  }
+
+  @keyframes swing {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(4deg); }
+    40% { transform: rotate(-3deg); }
+    60% { transform: rotate(2deg); }
+    80% { transform: rotate(-1deg); }
+    100% { transform: rotate(0deg); }
+  }
+  .hover-swing {
+    transform-origin: top center;
+    transition: transform 0.2s ease-out;
+  }
+  .hover-swing:hover {
+    animation: swing 0.8s ease-in-out;
+  }
+
+  @keyframes blink-amber {
+    0%, 100% {
+      background-color: #EAB308;
+      box-shadow: 0 0 10px #EAB308, inset 0 2px 3px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+      background-color: #78350F;
+      box-shadow: 0 0 2px rgba(234, 179, 8, 0.2);
+    }
+  }
+
+  @keyframes blink-red {
+    0%, 100% {
+      background-color: #B91C1C;
+      box-shadow: 0 0 10px #B91C1C, inset 0 2px 3px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+      background-color: #450A0A;
+      box-shadow: 0 0 2px rgba(185, 28, 28, 0.2);
+    }
+  }
+
+  .animate-blink-amber {
+    animation: blink-amber 1.8s infinite ease-in-out;
+  }
+
+  .animate-blink-red {
+    animation: blink-red 1.8s infinite ease-in-out;
+  }
+
+  @keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      text-shadow: 0 0 4px #B91C1C, 0 0 10px #B91C1C, 0 0 20px #EF4444;
+      color: #FFF5F5;
+    }
+    20%, 24%, 55% {
+      text-shadow: none;
+      color: #7F1D1D;
+    }
+  }
+
+  .animate-neon-flicker {
+    animation: neon-flicker 5s infinite;
+  }
+
+  @keyframes horn-wave {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(2.2);
+      opacity: 0;
+    }
+  }
+  .animate-horn-wave {
+    animation: horn-wave 1s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  /* Retro ticket punch holes */
+  .ticket-punch-hole {
+    width: 16px;
+    height: 16px;
+    background-color: #a41c1c; /* Matches reviews section background */
+    border: 2px solid #1C1917;
+    border-radius: 50%;
+  }
+
+  /* Postage stamp perforated look */
+  .postage-stamp-card {
+    position: relative;
+    border: 3px solid #1C1917;
+    background-color: #FFFDF6;
+    box-shadow: 6px 6px 0px #1C1917;
+  }
+  .postage-stamp-card::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 2px dashed #B91C1C; /* Red dashed line for stamp look */
+    pointer-events: none;
+    border-radius: 8px;
+  }
+
+  /* Diner neon flicker */
+  @keyframes diner-neon-glow {
+    0%, 100% {
+      text-shadow: 0 0 4px #EAB308, 0 0 10px #EAB308, 0 0 20px #F59E0B;
+      color: #FFFBEB;
+    }
+    45%, 55% {
+      text-shadow: none;
+      color: #78350F;
+    }
+    50% {
+      text-shadow: 0 0 2px #EAB308;
+      color: #D97706;
+    }
+  }
+  .animate-diner-neon {
+    animation: diner-neon-glow 3s infinite;
+  }
 }
+
+
+

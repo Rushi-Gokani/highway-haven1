@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://highwayhaven.co.in/sitemap.xml
