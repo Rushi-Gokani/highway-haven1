@@ -15,7 +15,15 @@
 
 @layer base {
   body {
-    @apply bg-dhaba-cream text-dhaba-dark selection:bg-dhaba-saffron selection:text-white antialiased;
+    @apply font-sans bg-dhaba-cream text-dhaba-dark selection:bg-dhaba-saffron selection:text-white antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  p {
+    @apply font-sans;
   }
 }
 

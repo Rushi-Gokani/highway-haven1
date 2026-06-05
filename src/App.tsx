@@ -83,17 +83,17 @@ const RoadDivider = () => {
 
 const ReviewsMarquee = () => {
   const reviewsRow1 = [
-    { text: "Best stop on NH-1! Cleanest bathrooms ever.", author: "Rahul Sharma" },
-    { text: "Loved the Blue Tokai coffee! A true luxury stop.", author: "Priya Singh" },
-    { text: "Super fast EV charging. Very convenient!", author: "Amit Verma" },
-    { text: "Ample parking and great security. Safe for family.", author: "Sonia G." },
+    { text: "Stopped here on the way to Chandigarh. Hands down the cleanest washrooms on NH-1! Naivedyam's food was as authentic as the city outlets.", author: "Rahul Sharma" },
+    { text: "Such a relief to have a premium stop at the 64th milestone. Enjoyed a perfect cup at Chaayos and the EV charging station was super fast.", author: "Priyanka T." },
+    { text: "Finally a family-friendly stopover! The Uttham Lounge is so relaxing, and the security makes you feel very safe parking your car.", author: "Amit Verma" },
+    { text: "Best pitstop on the Delhi-Panipat route. Had Blue Tokai coffee and some great food. The whole place is beautifully maintained and hygienic.", author: "Sonia Gupta" },
   ];
 
   const reviewsRow2 = [
-    { text: "The lounge facilities are world-class. Worth every penny.", author: "Vikram R." },
-    { text: "Authentic Naivedyam taste right on the highway!", author: "Anjali K." },
-    { text: "Professional staff and premium atmosphere.", author: "Deepak S." },
-    { text: "Best place for a break between Delhi and Chandigarh.", author: "Karan P." },
+    { text: "Absolutely loved the multi-cuisine options. Having Naivedyam and Chaayos under one roof on a highway is a game changer. Highly recommend!", author: "Vikram Rathi" },
+    { text: "A breath of fresh air compared to regular dhabas. The air-conditioned infrastructure is top-notch. Staff is very professional and polite.", author: "Anjali Khanna" },
+    { text: "Very premium vibe right at Ganaur. The interiors are modern and the food quality is fantastic. This is our new permanent stop.", author: "Deepak S." },
+    { text: "Great accessibility, ample parking, and pristine hygiene standards. If you are travelling on NH-44, do not miss stopping at Highway Haven.", author: "Karan Patel" },
   ];
 
   const ReviewItem: React.FC<{ text: string; author: string }> = ({ text, author }) => (
@@ -800,38 +800,45 @@ const Hero = () => {
             </div>
 
             {/* Brand 2: Jugni Dhaba */}
-            <div className="flex flex-col items-center justify-between text-center p-3 pt-6 md:pt-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
+            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
               <div className="flex flex-col items-center">
-                <img src="/resturents icons/jugni.png" alt="Jugni Dhaba" loading="lazy" decoding="async" className="h-20 md:h-24 object-contain mb-3" />
+                <img src="/resturents icons/jugni.png" alt="Jugni Dhaba" loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
                 <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">JUGNI DHABA</h3>
               </div>
               <div className="w-full">
                 <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
-                  DHABA (NON VEG)
+                  MULTICUISINE NON VEG & VEG
                 </div>
-                <div className="flex justify-center gap-3 mt-3 text-lg leading-none">
-                  <span title="Chicken">🍗</span>
-                  <span title="Fish">🐟</span>
-                  <span title="Curry">🍲</span>
+                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
+                  <span className="flex items-center gap-0.5"><Drumstick size={10} className="text-amber-700" /> Non-Veg</span>
+                  <span className="flex items-center gap-0.5"><Soup size={10} className="text-green-600" /> Pure Veg</span>
+                  <span className="flex items-center gap-0.5"><FlameKindling size={10} className="text-[#B91C1C]" /> Tandoor</span>
+                  <span className="flex items-center gap-0.5"><Users size={10} className="text-blue-600" /> Family</span>
                 </div>
               </div>
             </div>
 
             {/* Brand 3: Blue Tokai */}
-            <div className="flex flex-col items-center justify-between text-center p-3 pt-6 md:pt-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
+            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
               <div className="flex flex-col items-center">
-                <img src="/resturents icons/blue tokai.png" alt="Blue Tokai" width={225} height={225} loading="lazy" decoding="async" className="h-14 object-contain mb-3 rounded-full border border-stone-100" />
+                <img src="/resturents icons/blue tokai.png" alt="Blue Tokai" width={225} height={225} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
                 <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">BLUE TOKAI</h3>
               </div>
               <div className="w-full">
                 <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
                   COFFEE
                 </div>
+                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
+                  <span className="flex items-center gap-0.5"><Coffee size={10} className="text-[#8B4513]" /> Specialty</span>
+                  <span className="flex items-center gap-0.5"><Zap size={10} className="text-amber-500 fill-amber-500" /> Cold Brews</span>
+                  <span className="flex items-center gap-0.5"><ChefHat size={10} className="text-stone-600" /> Bakery</span>
+                  <span className="flex items-center gap-0.5"><Star size={10} className="text-amber-500 fill-amber-500" /> Roastery</span>
+                </div>
               </div>
             </div>
 
             {/* Brand 4: Naivedyam */}
-            <div className="flex flex-col items-center justify-between text-center p-3 pt-6 md:pt-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
+            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
               <div className="flex flex-col items-center">
                 <img src="/resturents icons/naivedham.png" alt="Naivedyam" width={230} height={132} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
                 <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">NAIVEDYAM</h3>
@@ -840,33 +847,49 @@ const Hero = () => {
                 <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
                   SOUTH INDIAN
                 </div>
+                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
+                  <span className="flex items-center gap-0.5"><Sparkles size={10} className="text-green-600" /> Pure Veg</span>
+                  <span className="flex items-center gap-0.5"><Soup size={10} className="text-amber-600" /> Authentic</span>
+                  <span className="flex items-center gap-0.5"><UtensilsCrossed size={10} className="text-[#B91C1C]" /> Thali</span>
+                  <span className="flex items-center gap-0.5"><Coffee size={10} className="text-[#8B4513]" /> Filter Kaapi</span>
+                </div>
               </div>
             </div>
 
             {/* Brand 5: Chaayos */}
-            <div className="flex flex-col items-center justify-between text-center p-3 pt-6 md:pt-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
+            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
               <div className="flex flex-col items-center">
-                <img src="/resturents icons/chayos.png" alt="Chaayos" width={404} height={316} loading="lazy" decoding="async" className="h-14 object-contain mb-3 rounded-full" />
+                <img src="/resturents icons/chayos.png" alt="Chaayos" width={404} height={316} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
                 <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">CHAAYOS</h3>
               </div>
               <div className="w-full">
                 <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
                   CHAI
                 </div>
+                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
+                  <span className="flex items-center gap-0.5"><Coffee size={10} className="text-amber-700" /> Desi Chai</span>
+                  <span className="flex items-center gap-0.5"><UtensilsCrossed size={10} className="text-[#B91C1C]" /> Nashta</span>
+                  <span className="flex items-center gap-0.5"><Clock size={10} className="text-teal-600" /> Quick Bite</span>
+                  <span className="flex items-center gap-0.5"><Users size={10} className="text-blue-600" /> Hangout</span>
+                </div>
               </div>
             </div>
 
             {/* Brand 6: Guardian Pharmacy */}
-            <div className="flex flex-col items-center justify-between text-center p-3 pt-6 md:pt-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
+            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
               <div className="flex flex-col items-center">
-                <svg className="w-14 h-14 text-[#6D28D9] mb-3 fill-current filter drop-shadow-sm" viewBox="0 0 24 24">
-                  <path d="M19 10.5h-5.5V5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v5.5H5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5h5.5V19c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-5.5H19c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z" />
-                </svg>
+                <img src="/gUARDIAN PHARMA d1.png" alt="Guardian Pharmacy" loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
                 <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">GUARDIAN PHARMACY</h3>
               </div>
               <div className="w-full">
                 <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
                   PHARMACY
+                </div>
+                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
+                  <span className="flex items-center gap-0.5"><Star size={10} className="text-blue-600 fill-blue-600" /> Pharmacy</span>
+                  <span className="flex items-center gap-0.5"><Sparkles size={10} className="text-green-600" /> Wellness</span>
+                  <span className="flex items-center gap-0.5"><Bath size={10} className="text-teal-600" /> Personal Care</span>
+                  <span className="flex items-center gap-0.5"><Baby size={10} className="text-pink-500" /> Baby Care</span>
                 </div>
               </div>
             </div>
@@ -1079,7 +1102,7 @@ const LoungeSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
               </div>
               <p className="font-serif italic text-dhaba-dark text-center text-lg md:text-xl mt-6 select-none leading-none">
-                ★ UTTHAM LOUNG ★
+                ★ UTTHAM LOUNGE ★
               </p>
             </div>
           </div>
@@ -1099,9 +1122,9 @@ const JugniFoodGallery = () => {
       tag: "DESI TADKA 🔥",
       desc: "Discover the soul of North Indian meat artistry. Jugni is our dedicated sanctuary for non-veg aficionados, serving legendary slow-cooked curries and sizzling charcoal grills & All Time Favourite Parathas.",
       images: [
-        "/img/food1.jpeg",
-        "/img/Food2.jpeg",
-        "/img/food3.jpeg",
+        "/Gallery/gallery-1.jpeg",
+        "/Gallery/gallery-2.jpeg",
+        "/Gallery/gallery-3.jpeg",
       ]
     }
   ];
@@ -1477,18 +1500,16 @@ const BrandCard = ({ brand }: BrandCardProps) => {
       className="relative w-full aspect-[4/5] bg-dhaba-dark rounded-[30px] overflow-hidden group cursor-pointer border-4 border-dhaba-dark transition-all duration-300 shadow-[6px_6px_0px_#1C1917] hover:shadow-[10px_10px_0px_#1C1917] hover:-translate-y-1 hover:-translate-x-1 flex-shrink-0"
     >
       {/* Background Image */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden flex items-center justify-center bg-[#F8FAFC]">
         <motion.img
           src={brand.logo}
           alt={brand.name}
-          width={brand.name === "Uttham" ? 1000 : 800}
-          height={brand.name === "Uttham" ? 1500 : 1000}
           loading="lazy"
           decoding="async"
-          className="w-full h-full object-cover opacity-100 group-hover:scale-110 transition-all duration-700"
+          className="w-[65%] h-[65%] object-contain opacity-100 group-hover:scale-110 transition-all duration-700 -mt-8 drop-shadow-sm"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-dhaba-dark via-dhaba-dark/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dhaba-dark via-dhaba-dark/40 to-transparent pointer-events-none" />
       </div>
 
       {/* Retro Inner Keyline Border */}
@@ -1529,24 +1550,19 @@ const Brands = () => {
       subtitle: "Freshly roasted specialty coffee"
     },
     {
-      name: "Naivedyam",
-      logo: "/Naivedyam HHd5.png",
-      subtitle: "Authentic South Indian dining."
-    },
-    {
       name: "Chaayos",
       logo: "/Chaayos HHd4.png",
       subtitle: "Experiments with Chai."
     },
     {
-      name: "Uttham",
-      logo: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=1000&auto=format&fit=crop",
-      subtitle: "Supreme Indian flavors and sweets."
+      name: "Naivedyam",
+      logo: "/Naivedyam HHd5.png",
+      subtitle: "Authentic South Indian dining."
     },
     {
-      name: "Three Sixty Lux",
-      logo: "/three sixty HHd3.png",
-      subtitle: "Luxury lounge and bar."
+      name: "Guardian Pharmacy",
+      logo: "/gUARDIAN PHARMA d1.png",
+      subtitle: "Your trusted wellness partner."
     },
     {
       name: "Chokhi Dhani",
@@ -1554,9 +1570,19 @@ const Brands = () => {
       subtitle: "Rajasthani cultural dining."
     },
     {
-      name: "Guardian Pharmacy",
-      logo: "/gUARDIAN PHARMA d1.png",
-      subtitle: "Your trusted wellness partner."
+      name: "Uttham Lounge",
+      logo: "/resturents icons/uthham.png",
+      subtitle: "Supreme Indian flavors and sweets."
+    },
+    {
+      name: "Jugni",
+      logo: "/resturents icons/jugni.png",
+      subtitle: "North Indian meat artistry."
+    },
+    {
+      name: "Three Sixty Lux",
+      logo: "/three sixty HHd3.png",
+      subtitle: "Luxury lounge and bar."
     }
   ];
 
@@ -1599,7 +1625,7 @@ const Brands = () => {
             }}
             className="flex gap-4 px-4"
           >
-            {[...brands.reverse(), ...brands].map((brand, i) => (
+            {[...[...brands].reverse(), ...brands].map((brand, i) => (
               <div key={`row2-${brand.name}-${i}`} className="w-[200px] flex-shrink-0">
                 <BrandCard brand={brand} />
               </div>
@@ -1650,7 +1676,7 @@ const Location = () => {
                 </div>
                 <h3 className="font-display text-[10px] md:text-xs tracking-[0.2em] text-[#B91C1C] uppercase mb-3 font-black">Connect</h3>
                 <div className="text-sm md:text-xl font-black leading-tight text-dhaba-dark flex flex-col gap-1">
-                  <span>+91 98765 43210</span>
+                  <span>+91 98839 52115</span>
                   <span className="text-[9px] sm:text-sm md:text-base lg:text-lg break-all select-all font-black text-dhaba-dark leading-normal">info@highwayhaven.in</span>
                 </div>
               </div>
@@ -1812,8 +1838,8 @@ const Footer = () => {
             </div>
             <p className="text-white/85 mb-6 text-sm font-medium leading-relaxed">Stay updated with our latest facilities and offers.</p>
             <div className="flex flex-col gap-4">
-              <a href="tel:+919876543210" className="flex items-center gap-3 text-base hover:text-dhaba-mustard transition-colors font-bold text-white/90 border border-white/10 hover:border-dhaba-mustard hover:bg-white/5 px-4 py-2.5 rounded-xl transition-all">
-                <Phone size={18} className="text-dhaba-mustard" /> +91 98765 43210
+              <a href="tel:+919883952115" className="flex items-center gap-3 text-base hover:text-dhaba-mustard transition-colors font-bold text-white/90 border border-white/10 hover:border-dhaba-mustard hover:bg-white/5 px-4 py-2.5 rounded-xl transition-all">
+                <Phone size={18} className="text-dhaba-mustard" /> +91 98839 52115
               </a>
               <a href="mailto:info@highwayhaven.co.in" className="flex items-center gap-3 text-base hover:text-dhaba-mustard transition-colors font-bold text-white/90 border border-white/10 hover:border-dhaba-mustard hover:bg-white/5 px-4 py-2.5 rounded-xl transition-all">
                 <Briefcase size={18} className="text-dhaba-mustard shrink-0" /> <span className="break-all">info@highwayhaven.co.in</span>
