@@ -7,6 +7,7 @@ import {
   ParkingCircle,
   Zap,
   Bath,
+  Heart,
   Coffee,
   Users,
   Briefcase,
@@ -173,8 +174,8 @@ const ReviewsMarquee = () => {
       </div>
 
       {/* Side gradients to fade out reviews */}
-      <div className="absolute inset-y-0 left-0 w-20 md:w-48 bg-gradient-to-r from-dhaba-red via-dhaba-red/80 to-transparent z-10" />
-      <div className="absolute inset-y-0 right-0 w-20 md:w-48 bg-gradient-to-l from-dhaba-red via-dhaba-red/80 to-transparent z-10" />
+      <div className="hidden md:block absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-dhaba-red via-dhaba-red/80 to-transparent z-10" />
+      <div className="hidden md:block absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-dhaba-red via-dhaba-red/80 to-transparent z-10" />
       </div>
     </section>
   );
@@ -660,6 +661,51 @@ const SparkleStarsIcon = () => (
 );
 
 const Hero = () => {
+  const brands = [
+    {
+      name: "UTTHAM LOUNGE",
+      logo: "/resturents icons/uthham.png",
+      tagline: "GT ROAD'S FIRST PREMIUM LOUNGE",
+      w: 225,
+      h: 224
+    },
+    {
+      name: "JUGNI DHABA",
+      logo: "/resturents icons/jugni.png",
+      tagline: "MULTICUISINE NON VEG & VEG",
+      w: 225,
+      h: 225
+    },
+    {
+      name: "BLUE TOKAI",
+      logo: "/resturents icons/blue tokai.png",
+      tagline: "SPECIALTY COFFEE & BREWS",
+      w: 225,
+      h: 225
+    },
+    {
+      name: "NAIVEDYAM",
+      logo: "/resturents icons/naivedham.png",
+      tagline: "AUTHENTIC SOUTH INDIAN VEG",
+      w: 230,
+      h: 132
+    },
+    {
+      name: "CHAAYOS",
+      logo: "/resturents icons/chayos.png",
+      tagline: "EXPERIMENTS WITH CHAI & SNACKS",
+      w: 404,
+      h: 316
+    },
+    {
+      name: "GUARDIAN PHARMACY",
+      logo: "/gUARDIAN PHARMA d1.png",
+      tagline: "24/7 PHARMACY & WELLNESS STORE",
+      w: 225,
+      h: 225
+    }
+  ];
+
   return (
     <section className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#eab308]">
       {/* Animated rotating sunburst layer */}
@@ -738,7 +784,7 @@ const Hero = () => {
             </div>
 
             {/* Right red sawtooth SVG */}
-            <svg className="h-full w-4 sm:w-6 text-[#B91C1C] fill-current flex-shrink-0" viewBox="0 0 24 100" preserveAspectRatio="none">
+            <svg className="h-full w-0 sm:w-0 text-[#B91C1C] fill-current flex-shrink-0" viewBox="0 0 24 100" preserveAspectRatio="none">
               <polygon points="0,0 24,10 0,20 24,30 0,40 24,50 0,60 24,70 0,80 24,90 0,100" />
             </svg>
           </div>
@@ -778,122 +824,48 @@ const Hero = () => {
             <span className="text-[7px] text-dhaba-dark">NO. 064 GANAUR</span>
           </div>
 
-          <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 md:grid md:grid-cols-3 lg:grid-cols-6 items-stretch md:divide-y-0 md:divide-x divide-stone-200 pb-4 -mx-6 px-6 sm:-mx-8 sm:px-8 md:mx-0 md:px-0">
-            
-            {/* Brand 1: Uttham Lounge */}
-            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
-              <div className="flex flex-col items-center">
-                <img src="/resturents icons/uthham.png" alt="Uttham Lounge" width={225} height={224} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
-                <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">UTTHAM LOUNGE</h3>
-              </div>
-              <div className="w-full">
-                <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
-                  GT ROAD'S FIRST PREMIUM LOUNGE
+          {/* Mobile Auto-Playing Infinite Slider */}
+          <div className="md:hidden overflow-hidden w-full py-2">
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="flex gap-8 w-max"
+            >
+              {[...brands, ...brands].map((brand, idx) => (
+                <div key={idx} className="flex flex-col items-center justify-between text-center p-3 w-[160px] shrink-0">
+                  <div className="flex flex-col items-center">
+                    <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className="h-12 object-contain mb-3" />
+                    <h3 className="font-display font-black text-[#1C1917] text-[13px] uppercase tracking-wide">{brand.name}</h3>
+                  </div>
+                  <div className="w-full">
+                    <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
+                      {brand.tagline}
+                    </div>
+                  </div>
                 </div>
-                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
-                  <span className="flex items-center gap-0.5"><Star size={10} className="text-amber-500 fill-amber-500" /> Lounge</span>
-                  <span className="flex items-center gap-0.5"><UtensilsCrossed size={10} className="text-[#B91C1C]" /> Buffet</span>
-                  <span className="flex items-center gap-0.5"><Bath size={10} className="text-teal-600" /> Shower</span>
-                  <span className="flex items-center gap-0.5"><Zap size={10} className="text-amber-500 fill-amber-500" /> Charger</span>
-                </div>
-              </div>
-            </div>
+              ))}
+            </motion.div>
+          </div>
 
-            {/* Brand 2: Jugni Dhaba */}
-            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
-              <div className="flex flex-col items-center">
-                <img src="/resturents icons/jugni.png" alt="Jugni Dhaba" loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
-                <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">JUGNI DHABA</h3>
-              </div>
-              <div className="w-full">
-                <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
-                  MULTICUISINE NON VEG & VEG
+          {/* Desktop Grid Layout with Divider Borders */}
+          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 items-stretch md:divide-y-0 md:divide-x divide-stone-300 pb-4">
+            {brands.map((brand, idx) => (
+              <div key={idx} className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300">
+                <div className="flex flex-col items-center">
+                  <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className="h-12 object-contain mb-3" />
+                  <h3 className="font-display font-black text-[#1C1917] text-[13px] uppercase tracking-wide">{brand.name}</h3>
                 </div>
-                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
-                  <span className="flex items-center gap-0.5"><Drumstick size={10} className="text-amber-700" /> Non-Veg</span>
-                  <span className="flex items-center gap-0.5"><Soup size={10} className="text-green-600" /> Pure Veg</span>
-                  <span className="flex items-center gap-0.5"><FlameKindling size={10} className="text-[#B91C1C]" /> Tandoor</span>
-                  <span className="flex items-center gap-0.5"><Users size={10} className="text-blue-600" /> Family</span>
+                <div className="w-full">
+                  <div className="bg-[#B91C1C] text-white text-[12px] font-bold px-2.5 py-1.5 rounded-full mt-2 uppercase leading-none text-center">
+                    {brand.tagline}
+                  </div>
                 </div>
               </div>
-            </div>
-
-            {/* Brand 3: Blue Tokai */}
-            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
-              <div className="flex flex-col items-center">
-                <img src="/resturents icons/blue tokai.png" alt="Blue Tokai" width={225} height={225} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
-                <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">BLUE TOKAI</h3>
-              </div>
-              <div className="w-full">
-                <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
-                  COFFEE
-                </div>
-                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
-                  <span className="flex items-center gap-0.5"><Coffee size={10} className="text-[#8B4513]" /> Specialty</span>
-                  <span className="flex items-center gap-0.5"><Zap size={10} className="text-amber-500 fill-amber-500" /> Cold Brews</span>
-                  <span className="flex items-center gap-0.5"><ChefHat size={10} className="text-stone-600" /> Bakery</span>
-                  <span className="flex items-center gap-0.5"><Star size={10} className="text-amber-500 fill-amber-500" /> Roastery</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Brand 4: Naivedyam */}
-            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
-              <div className="flex flex-col items-center">
-                <img src="/resturents icons/naivedham.png" alt="Naivedyam" width={230} height={132} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
-                <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">NAIVEDYAM</h3>
-              </div>
-              <div className="w-full">
-                <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
-                  SOUTH INDIAN
-                </div>
-                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
-                  <span className="flex items-center gap-0.5"><Sparkles size={10} className="text-green-600" /> Pure Veg</span>
-                  <span className="flex items-center gap-0.5"><Soup size={10} className="text-amber-600" /> Authentic</span>
-                  <span className="flex items-center gap-0.5"><UtensilsCrossed size={10} className="text-[#B91C1C]" /> Thali</span>
-                  <span className="flex items-center gap-0.5"><Coffee size={10} className="text-[#8B4513]" /> Filter Kaapi</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Brand 5: Chaayos */}
-            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
-              <div className="flex flex-col items-center">
-                <img src="/resturents icons/chayos.png" alt="Chaayos" width={404} height={316} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
-                <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">CHAAYOS</h3>
-              </div>
-              <div className="w-full">
-                <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
-                  CHAI
-                </div>
-                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
-                  <span className="flex items-center gap-0.5"><Coffee size={10} className="text-amber-700" /> Desi Chai</span>
-                  <span className="flex items-center gap-0.5"><UtensilsCrossed size={10} className="text-[#B91C1C]" /> Nashta</span>
-                  <span className="flex items-center gap-0.5"><Clock size={10} className="text-teal-600" /> Quick Bite</span>
-                  <span className="flex items-center gap-0.5"><Users size={10} className="text-blue-600" /> Hangout</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Brand 6: Guardian Pharmacy */}
-            <div className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300 w-[200px] md:w-auto snap-center shrink-0 flex-none">
-              <div className="flex flex-col items-center">
-                <img src="/gUARDIAN PHARMA d1.png" alt="Guardian Pharmacy" loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
-                <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">GUARDIAN PHARMACY</h3>
-              </div>
-              <div className="w-full">
-                <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
-                  PHARMACY
-                </div>
-                <div className="grid grid-cols-2 gap-1.5 mt-3 w-full text-[9px] font-sans font-bold text-stone-500 text-left px-1">
-                  <span className="flex items-center gap-0.5"><Star size={10} className="text-blue-600 fill-blue-600" /> Pharmacy</span>
-                  <span className="flex items-center gap-0.5"><Sparkles size={10} className="text-green-600" /> Wellness</span>
-                  <span className="flex items-center gap-0.5"><Bath size={10} className="text-teal-600" /> Personal Care</span>
-                  <span className="flex items-center gap-0.5"><Baby size={10} className="text-pink-500" /> Baby Care</span>
-                </div>
-              </div>
-            </div>
-
+            ))}
           </div>
         </motion.div>
 
@@ -901,7 +873,7 @@ const Hero = () => {
 
       {/* High-Fidelity Highlights Strip */}
       <div className="relative z-10 w-full bg-[#820d0d] py-6 px-4 md:px-8 border-t-4 border-dhaba-mustard shadow-[0_-8px_30px_rgb(0,0,0,0.3)]">
-        <div className="w-full max-w-none mx-auto flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-between items-stretch sm:items-center gap-6 sm:gap-8 md:gap-4">
+        <div className="w-full max-w-none mx-auto grid grid-cols-2 gap-y-6 gap-x-2 sm:flex sm:flex-row sm:flex-wrap lg:flex-nowrap justify-between items-stretch sm:items-center sm:gap-8 md:gap-4">
           
           {/* Item 1: Ample Parking */}
           <div className="flex items-center gap-4 hover:scale-105 transition-transform duration-300 select-none flex-1 justify-center sm:justify-start">
@@ -970,6 +942,7 @@ const Hero = () => {
 };
 
 const Highlights = () => {
+  const [activeHighlight, setActiveHighlight] = useState(0);
   const highlights = [
     {
       title: "Ample Parking",
@@ -991,6 +964,13 @@ const Highlights = () => {
     }
   ];
 
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveHighlight((prev) => (prev + 1) % highlights.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [highlights.length]);
+
   return (
     <section id="highlights" className="py-24 bg-dhaba-mustard relative overflow-hidden">
       <div className="dhaba-pattern absolute inset-0 opacity-10"></div>
@@ -1002,12 +982,77 @@ const Highlights = () => {
           <div className="w-48 h-3.5 hazard-strip mx-auto mt-6 rounded border-2 border-dhaba-dark shadow-[3px_3px_0px_#1C1917]" />
         </div>
 
-        <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 lg:grid lg:grid-cols-3 lg:gap-12 pb-8 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0">
+        {/* Mobile Carousel (shown on screens < lg) */}
+        <div className="lg:hidden flex flex-col items-center w-full max-w-xs sm:max-w-sm mx-auto">
+          {/* Active Highlight Card */}
+          <div className="w-full min-w-0">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeHighlight}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.2 }}
+                className="bg-[#FFFDF6] rounded-3xl overflow-hidden border-4 border-dhaba-dark shadow-[8px_8px_0px_#1C1917] group relative transition-all duration-300 w-full"
+              >
+                <div className="h-48 overflow-hidden relative m-2.5 rounded-2xl border-2 border-dashed border-dhaba-dark/30 bg-stone-900">
+                  <img src={highlights[activeHighlight].img} alt={highlights[activeHighlight].title} width={1000} height={667} loading="lazy" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  <div className="absolute inset-0 bg-dhaba-red/10" />
+                </div>
+                <div className="absolute top-36 left-8 bg-[#BC3030] p-4 rounded-xl border-3 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] text-white z-10">
+                  {highlights[activeHighlight].icon}
+                </div>
+                <div className="p-8 pt-10 text-left">
+                  <h3 className="font-display text-2xl mb-3 text-[#B91C1C] font-black uppercase tracking-tight flex items-center gap-2">
+                    <span>✦</span> {highlights[activeHighlight].title}
+                  </h3>
+                  <p className="text-dhaba-dark/80 text-sm font-sans leading-relaxed">{highlights[activeHighlight].desc}</p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Navigation Row */}
+          <div className="flex items-center gap-6 mt-6 justify-center">
+            {/* Left Arrow Button */}
+            <button 
+              onClick={() => setActiveHighlight((prev) => (prev === 0 ? highlights.length - 1 : prev - 1))}
+              className="w-8 h-8 bg-dhaba-dark text-white rounded-full flex items-center justify-center transition-all hover:bg-dhaba-dark/80 active:scale-90 cursor-pointer"
+              aria-label="Previous highlight"
+            >
+              <ChevronLeft size={16} />
+            </button>
+
+            {/* Dot Indicators */}
+            <div className="flex gap-2">
+              {highlights.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveHighlight(idx)}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${activeHighlight === idx ? 'bg-[#BC3030] w-3' : 'bg-dhaba-dark/20'}`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Right Arrow Button */}
+            <button 
+              onClick={() => setActiveHighlight((prev) => (prev === highlights.length - 1 ? 0 : prev + 1))}
+              className="w-8 h-8 bg-dhaba-dark text-white rounded-full flex items-center justify-center transition-all hover:bg-dhaba-dark/80 active:scale-90 cursor-pointer"
+              aria-label="Next highlight"
+            >
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop Grid (shown on screens >= lg) */}
+        <div className="hidden lg:grid lg:grid-cols-3 lg:gap-12 w-full">
           {highlights.map((item, idx) => (
             <motion.div
               key={idx}
               whileHover={{ y: -10 }}
-              className="bg-[#FFFDF6] rounded-3xl overflow-hidden border-4 border-dhaba-dark shadow-[8px_8px_0px_#1C1917] group relative transition-all duration-300 shrink-0 snap-center w-[300px] lg:w-auto lg:min-w-0"
+              className="bg-[#FFFDF6] rounded-3xl overflow-hidden border-4 border-dhaba-dark shadow-[8px_8px_0px_#1C1917] group relative transition-all duration-300 lg:min-w-0"
             >
               <div className="h-48 overflow-hidden relative m-2.5 rounded-2xl border-2 border-dashed border-dhaba-dark/30 bg-stone-900">
                 <img src={item.img} alt={item.title} width={1000} height={667} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
@@ -1016,7 +1061,7 @@ const Highlights = () => {
               <div className="absolute top-36 left-8 bg-[#BC3030] p-4 rounded-xl border-3 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] text-white z-10 transition-transform group-hover:scale-110">
                 {item.icon}
               </div>
-              <div className="p-8 pt-10">
+              <div className="p-8 pt-10 text-left">
                 <h3 className="font-display text-2xl mb-3 text-[#B91C1C] font-black uppercase tracking-tight flex items-center gap-2">
                   <span>✦</span> {item.title}
                 </h3>
@@ -1032,6 +1077,7 @@ const Highlights = () => {
 };
 
 const LoungeSection = () => {
+  const [activeFacility, setActiveFacility] = useState(0);
   const facilities = [
     { name: "Gourmet Buffet", icon: <UtensilsCrossed />, desc: "Breakfast, Lunch & Dinner" },
     { name: "Wash & Change", icon: <Bath />, desc: "Fresh up for the journey" },
@@ -1039,6 +1085,13 @@ const LoungeSection = () => {
     { name: "Business Center", icon: <Briefcase />, desc: "Work on the go" },
     { name: "Private Dining", icon: <ChefHat />, desc: "Exclusive meal space" }
   ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveFacility((prev) => (prev + 1) % facilities.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [facilities.length]);
 
   return (
     <section id="lounge" className="py-24 bg-gradient-to-br from-[#B91C1C] via-dhaba-red to-[#991B1B] text-white relative overflow-hidden">
@@ -1062,11 +1115,79 @@ const LoungeSection = () => {
             </p>
 
             <div className="mt-12 max-w-3xl mx-auto lg:mx-0">
-              <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-4 lg:grid lg:grid-cols-3 lg:gap-6 pb-6 lg:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
+              {/* Mobile Carousel (shown on screens < lg) */}
+              <div className="lg:hidden flex flex-col items-center w-full max-w-xs sm:max-w-sm mx-auto">
+                {/* Active Facility Card */}
+                <div className="w-full min-w-0">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeFacility}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.2 }}
+                      className="p-6 rounded-2xl bg-white/5 border-2 border-white/20 flex flex-col items-start text-left relative overflow-hidden shadow-[4px_4px_0px_rgba(0,0,0,0.2)] w-full h-[140px] justify-between"
+                    >
+                      {/* Dashboard indicator LED */}
+                      <div className="absolute top-4 right-4 flex items-center select-none">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308] shadow-[0_0_8px_#EAB308] animate-blink-amber" />
+                      </div>
+
+                      <div className="text-dhaba-mustard mb-3">
+                        {React.cloneElement(facilities[activeFacility].icon as React.ReactElement, { size: 28, strokeWidth: 2 })}
+                      </div>
+                      <div>
+                        <h3 className="font-display text-[11px] font-bold uppercase tracking-widest text-white mb-1">
+                          {facilities[activeFacility].name}
+                        </h3>
+                        <p className="text-dhaba-mustard/60 text-[8px] uppercase tracking-wider font-bold">
+                          {facilities[activeFacility].desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+
+                {/* Navigation Row */}
+                <div className="flex items-center gap-6 mt-6 justify-center">
+                  {/* Left Arrow Button */}
+                  <button 
+                    onClick={() => setActiveFacility((prev) => (prev === 0 ? facilities.length - 1 : prev - 1))}
+                    className="w-8 h-8 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-all border border-white/25 active:scale-90 cursor-pointer"
+                    aria-label="Previous facility"
+                  >
+                    <ChevronLeft size={16} />
+                  </button>
+
+                  {/* Dot Indicators */}
+                  <div className="flex gap-2">
+                    {facilities.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setActiveFacility(idx)}
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${activeFacility === idx ? 'bg-dhaba-mustard w-3' : 'bg-white/20'}`}
+                        aria-label={`Go to slide ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Right Arrow Button */}
+                  <button 
+                    onClick={() => setActiveFacility((prev) => (prev === facilities.length - 1 ? 0 : prev + 1))}
+                    className="w-8 h-8 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-all border border-white/25 active:scale-90 cursor-pointer"
+                    aria-label="Next facility"
+                  >
+                    <ChevronRight size={16} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Desktop Grid (shown on screens >= lg) */}
+              <div className="hidden lg:grid lg:grid-cols-3 lg:gap-6 w-full">
                 {facilities.map((f, idx) => (
                   <div
                     key={idx}
-                    className="p-5 rounded-2xl bg-white/5 border-2 border-white/20 flex flex-col items-start text-left group transition-all hover:bg-white/10 hover:border-dhaba-mustard/40 hover:-translate-y-1 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] hover:shadow-[6px_6px_0px_rgba(234,179,8,0.25)] relative overflow-hidden shrink-0 snap-center w-[240px] sm:w-[280px] lg:w-auto"
+                    className="p-5 rounded-2xl bg-white/5 border-2 border-white/20 flex flex-col items-start text-left group transition-all hover:bg-white/10 hover:border-dhaba-mustard/40 hover:-translate-y-1 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] hover:shadow-[6px_6px_0px_rgba(234,179,8,0.25)] relative overflow-hidden"
                   >
                     {/* Dashboard indicator LED */}
                     <div className="absolute top-4 right-4 flex items-center select-none">
@@ -1373,18 +1494,18 @@ const GroupBookings = () => {
               Whether it's a Milestone Birthday, an exclusive Kitty Party, or a Corporate stopover, we offer a sanctuary of privacy and hospitality tailored for your group.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 mb-16">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-12 mb-16">
               {[
                 { name: "Birthdays & Kitty Parties", icon: <Sparkles size={18} /> },
                 { name: "Dedicated Seating Areas", icon: <MapPin size={18} /> },
                 { name: "Customized Group Menus", icon: <UtensilsCrossed size={18} /> },
                 { name: "Priority Service", icon: <Zap size={18} /> }
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 group cursor-pointer">
-                  <div className="w-12 h-12 rounded-xl bg-dhaba-mustard text-dhaba-dark flex items-center justify-center border-2 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] group-hover:bg-[#FFFBEB] transition-colors shrink-0">
+                <div key={i} className="flex items-center gap-2.5 sm:gap-4 group cursor-pointer">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-dhaba-mustard text-dhaba-dark flex items-center justify-center border-2 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] group-hover:bg-[#FFFBEB] transition-colors shrink-0">
                     {item.icon}
                   </div>
-                  <span className="font-display text-base md:text-xl uppercase tracking-wider text-white font-bold group-hover:text-dhaba-mustard transition-colors flex items-center gap-1.5 select-none">
+                  <span className="font-display text-xs sm:text-base md:text-xl uppercase tracking-wider text-white font-bold group-hover:text-dhaba-mustard transition-colors flex items-center gap-1.5 select-none">
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-dhaba-mustard">👉</span>
                     {item.name}
                   </span>
@@ -1648,8 +1769,8 @@ const Brands = () => {
 
 const Location = () => {
   return (
-    <section id="location" className="bg-dhaba-mustard pt-16 pb-0 md:py-24 text-dhaba-dark overflow-hidden border-t-4 md:border-y-4 border-dhaba-dark">
-      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-24 pb-0 md:pb-0">
+    <section id="location" className="bg-dhaba-mustard pt-16 pb-12 md:py-24 text-dhaba-dark overflow-hidden border-t-4 md:border-y-4 border-dhaba-dark">
+      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-24 pb-4 md:pb-0">
         <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-12 md:gap-16">
           {/* Text Content */}
           <div className="w-full lg:w-[45%] lg:shrink-0 mb-12 lg:mb-0">
@@ -1692,8 +1813,8 @@ const Location = () => {
             </a>
           </div>
 
-          {/* Map Container - Full width and touches footer on mobile */}
-          <div className="w-screen lg:w-[55%] -mx-6 md:mx-0 mt-0 relative">
+          {/* Map Container */}
+          <div className="w-full lg:w-[55%] mt-8 lg:mt-0 relative">
             {/* Map Header Sign */}
             <div className="absolute -top-3.5 left-6 md:left-10 bg-dhaba-mustard text-dhaba-dark px-4 py-1.5 border-2 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] rounded font-display font-black text-[10px] tracking-widest uppercase z-20 flex items-center gap-1.5 select-none leading-none">
               <span className="w-1 h-1 bg-[#1C1917] rounded-full" />
@@ -1701,7 +1822,7 @@ const Location = () => {
               <span className="w-1 h-1 bg-[#1C1917] rounded-full" />
             </div>
 
-            <div className="w-full h-[500px] md:h-[550px] border-t-4 border-b-0 md:border-4 border-dhaba-dark shadow-[6px_6px_0px_#1C1917] relative rounded-2xl overflow-hidden bg-stone-900">
+            <div className="w-full h-[350px] sm:h-[450px] md:h-[550px] border-4 border-dhaba-dark shadow-[6px_6px_0px_#1C1917] relative rounded-2xl overflow-hidden bg-stone-900">
 
               <iframe
                 title="Google Maps location of Highway Haven Ganaur"
