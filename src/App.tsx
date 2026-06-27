@@ -679,28 +679,28 @@ const Hero = () => {
     {
       name: "BLUE TOKAI",
       logo: "/resturents icons/blue tokai.png",
-      tagline: "SPECIALTY COFFEE & BREWS",
+      tagline: "Proudly Indian. Honestly Crafted.",
       w: 225,
       h: 225
     },
     {
       name: "NAIVEDYAM",
       logo: "/resturents icons/naivedham.png",
-      tagline: "AUTHENTIC SOUTH INDIAN VEG",
+      tagline: "Authentic South Indian Flavours Since 1994",
       w: 230,
       h: 132
     },
     {
       name: "CHAAYOS",
       logo: "/resturents icons/chayos.png",
-      tagline: "EXPERIMENTS WITH CHAI & SNACKS",
+      tagline: "Meri Wali Chai",
       w: 404,
       h: 316
     },
     {
       name: "GUARDIAN PHARMACY",
       logo: "/gUARDIAN PHARMA d1.png",
-      tagline: "24/7 PHARMACY & WELLNESS STORE",
+      tagline: "Your Trusted Health Partner",
       w: 225,
       h: 225
     }
@@ -824,44 +824,39 @@ const Hero = () => {
             <span className="text-[7px] text-dhaba-dark">NO. 064 GANAUR</span>
           </div>
 
-          {/* Mobile Auto-Playing Infinite Slider */}
-          <div className="md:hidden overflow-hidden w-full py-2">
-            <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                duration: 20,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              className="flex gap-8 w-max"
-            >
-              {[...brands, ...brands].map((brand, idx) => (
-                <div key={idx} className="flex flex-col items-center justify-between text-center p-3 w-[160px] shrink-0">
-                  <div className="flex flex-col items-center">
-                    <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className="h-12 object-contain mb-3" />
-                    <h3 className="font-display font-black text-[#1C1917] text-[13px] uppercase tracking-wide">{brand.name}</h3>
-                  </div>
-                  <div className="w-full">
-                    <div className="bg-[#B91C1C] text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full mt-2 uppercase leading-none text-center">
-                      {brand.tagline}
-                    </div>
-                  </div>
+          {/* Mobile 2-Column Grid */}
+          <div className="md:hidden grid grid-cols-2 gap-x-3 gap-y-5 pb-4">
+            {brands.map((brand, idx) => (
+              <div key={idx} className="flex flex-col items-center justify-between text-center py-4 px-1.5 border border-stone-100 rounded-2xl bg-stone-50/20 p-3 h-full">
+                <div className="flex flex-col items-center flex-grow justify-center">
+                  <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
+                  <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">{brand.name}</h3>
                 </div>
-              ))}
-            </motion.div>
+                <div className="w-full mt-3 flex flex-col items-center justify-center min-h-[38px]">
+                  <div className="text-[8.5px] font-display font-black text-[#1C1917] tracking-[0.3px] uppercase text-center leading-tight max-w-[130px]">
+                    {brand.tagline}
+                  </div>
+                  <div className="w-5 h-[1.5px] bg-[#B91C1C] mt-1.5" />
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Desktop Grid Layout with Divider Borders */}
-          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 items-stretch md:divide-y-0 md:divide-x divide-stone-300 pb-4">
+          <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 items-stretch md:divide-y-0 md:divide-x divide-stone-200 pb-4">
             {brands.map((brand, idx) => (
-              <div key={idx} className="flex flex-col items-center justify-between text-center p-3 hover:scale-105 transition-transform duration-300">
-                <div className="flex flex-col items-center">
-                  <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className="h-12 object-contain mb-3" />
-                  <h3 className="font-display font-black text-[#1C1917] text-[13px] uppercase tracking-wide">{brand.name}</h3>
+              <div key={idx} className="flex flex-col items-center justify-between text-center px-2 py-4 hover:scale-105 transition-transform duration-300">
+                <div className="flex flex-col items-center flex-grow justify-center">
+                  <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
+                  <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">{brand.name}</h3>
                 </div>
-                <div className="w-full">
-                  <div className="bg-[#B91C1C] text-white text-[12px] font-bold px-2.5 py-1.5 rounded-full mt-2 uppercase leading-none text-center">
-                    {brand.tagline}
+                <div className="w-full mt-3 h-7">
+                  <div className="text-[8.5px] font-display font-black text-[#1C1917] tracking-[0.3px] uppercase text-center leading-tight">
+                    <div className="flex items-center justify-center gap-1.5">
+                      <span className="w-2.5 h-[1.5px] bg-[#B91C1C] shrink-0" />
+                      <span>{brand.tagline}</span>
+                      <span className="w-2.5 h-[1.5px] bg-[#B91C1C] shrink-0" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1077,7 +1072,6 @@ const Highlights = () => {
 };
 
 const LoungeSection = () => {
-  const [activeFacility, setActiveFacility] = useState(0);
   const facilities = [
     { name: "Gourmet Buffet", icon: <UtensilsCrossed />, desc: "Breakfast, Lunch & Dinner" },
     { name: "Wash & Change", icon: <Bath />, desc: "Fresh up for the journey" },
@@ -1086,13 +1080,6 @@ const LoungeSection = () => {
     { name: "Private Dining", icon: <ChefHat />, desc: "Exclusive meal space" }
   ];
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveFacility((prev) => (prev + 1) % facilities.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [facilities.length]);
-
   return (
     <section id="lounge" className="py-24 bg-gradient-to-br from-[#B91C1C] via-dhaba-red to-[#991B1B] text-white relative overflow-hidden">
       <div className="absolute top-0 right-0 p-12 opacity-10">
@@ -1100,8 +1087,32 @@ const LoungeSection = () => {
       </div>
       <div className="absolute inset-0 opacity-10 dhaba-pattern pointer-events-none" />
 
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
-        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-center">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 relative z-10 flex flex-col items-center">
+        {/* Horizontal Uttham Lounge Image Banner at the top (Mobile only) */}
+        <div className="lg:hidden w-full max-w-4xl mb-6">
+          <div className="p-4 pb-5 bg-[#FFFDF6] border-4 border-dhaba-dark rounded-3xl shadow-[10px_10px_0px_#1C1917] transition-transform duration-500 hover:scale-[1.01] w-full text-dhaba-dark">
+            <div className="rounded-xl overflow-hidden relative h-[220px] sm:h-[320px] border-2 border-dhaba-dark bg-stone-900">
+              <img
+                src="/img/Lounge.jpeg"
+                alt="Luxury Lounge Preview"
+                width={1000}
+                height={668}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+            </div>
+            <p className="font-serif italic text-center text-lg md:text-xl mt-4 select-none leading-none">
+              ★ UTTHAM LOUNGE ★
+            </p>
+          </div>
+        </div>
+
+        {/* Text & Features Grid (Desktop layout side-by-side, Mobile layout stacked) */}
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 w-full items-center">
+          {/* LEFT: Text heading, description, mobile features list and desktop features grid */}
           <div className="text-center lg:text-left min-w-0">
             <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl mb-8 tracking-tight leading-[1.1] text-white">
               <span className="block lg:whitespace-nowrap uppercase">FIRST HIGHWAY PITSTOP</span>
@@ -1114,125 +1125,165 @@ const LoungeSection = () => {
               Experience our premium sanctuary designed for the discerning traveler. A place to rest, work, and dine in absolute luxury.
             </p>
 
-            <div className="mt-12 max-w-3xl mx-auto lg:mx-0">
-              {/* Mobile Carousel (shown on screens < lg) */}
-              <div className="lg:hidden flex flex-col items-center w-full max-w-xs sm:max-w-sm mx-auto">
-                {/* Active Facility Card */}
-                <div className="w-full min-w-0">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeFacility}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.2 }}
-                      className="p-6 rounded-2xl bg-white/5 border-2 border-white/20 flex flex-col items-start text-left relative overflow-hidden shadow-[4px_4px_0px_rgba(0,0,0,0.2)] w-full h-[140px] justify-between"
-                    >
-                      {/* Dashboard indicator LED */}
-                      <div className="absolute top-4 right-4 flex items-center select-none">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#EAB308] shadow-[0_0_8px_#EAB308] animate-blink-amber" />
-                      </div>
-
-                      <div className="text-dhaba-mustard mb-3">
-                        {React.cloneElement(facilities[activeFacility].icon as React.ReactElement, { size: 28, strokeWidth: 2 })}
-                      </div>
-                      <div>
-                        <h3 className="font-display text-[11px] font-bold uppercase tracking-widest text-white mb-1">
-                          {facilities[activeFacility].name}
-                        </h3>
-                        <p className="text-dhaba-mustard/60 text-[8px] uppercase tracking-wider font-bold">
-                          {facilities[activeFacility].desc}
-                        </p>
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
-                </div>
-
-                {/* Navigation Row */}
-                <div className="flex items-center gap-6 mt-6 justify-center">
-                  {/* Left Arrow Button */}
-                  <button 
-                    onClick={() => setActiveFacility((prev) => (prev === 0 ? facilities.length - 1 : prev - 1))}
-                    className="w-8 h-8 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-all border border-white/25 active:scale-90 cursor-pointer"
-                    aria-label="Previous facility"
-                  >
-                    <ChevronLeft size={16} />
-                  </button>
-
-                  {/* Dot Indicators */}
-                  <div className="flex gap-2">
-                    {facilities.map((_, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => setActiveFacility(idx)}
-                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${activeFacility === idx ? 'bg-dhaba-mustard w-3' : 'bg-white/20'}`}
-                        aria-label={`Go to slide ${idx + 1}`}
-                      />
-                    ))}
+            {/* Desktop View (Grid layout) */}
+            <div className="hidden lg:grid lg:grid-cols-3 lg:gap-6 max-w-3xl mx-auto lg:mx-0">
+              {facilities.map((f, idx) => (
+                <div
+                  key={idx}
+                  className="p-5 rounded-2xl bg-white/5 border-2 border-white/20 flex flex-col items-start text-left group transition-all hover:bg-white/10 hover:border-dhaba-mustard/40 hover:-translate-y-1 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] hover:shadow-[6px_6px_0px_rgba(234,179,8,0.25)] relative overflow-hidden"
+                >
+                  {/* Dashboard indicator LED */}
+                  <div className="absolute top-4 right-4 flex items-center select-none">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/10 border border-white/25 group-hover:animate-blink-amber group-hover:bg-[#EAB308] group-hover:shadow-[0_0_8px_#EAB308]" />
                   </div>
 
-                  {/* Right Arrow Button */}
-                  <button 
-                    onClick={() => setActiveFacility((prev) => (prev === facilities.length - 1 ? 0 : prev + 1))}
-                    className="w-8 h-8 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-all border border-white/25 active:scale-90 cursor-pointer"
-                    aria-label="Next facility"
-                  >
-                    <ChevronRight size={16} />
-                  </button>
+                  <div className="text-dhaba-mustard mb-4">
+                    {React.cloneElement(f.icon as React.ReactElement, { size: 28, strokeWidth: 2 })}
+                  </div>
+                  <div>
+                    <h3 className="font-display text-xs font-bold uppercase tracking-widest text-white mb-1">{f.name}</h3>
+                    <p className="text-dhaba-mustard/60 text-[9px] uppercase tracking-wider font-bold">{f.desc}</p>
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
 
-              {/* Desktop Grid (shown on screens >= lg) */}
-              <div className="hidden lg:grid lg:grid-cols-3 lg:gap-6 w-full">
-                {facilities.map((f, idx) => (
-                  <div
-                    key={idx}
-                    className="p-5 rounded-2xl bg-white/5 border-2 border-white/20 flex flex-col items-start text-left group transition-all hover:bg-white/10 hover:border-dhaba-mustard/40 hover:-translate-y-1 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] hover:shadow-[6px_6px_0px_rgba(234,179,8,0.25)] relative overflow-hidden"
-                  >
-                    {/* Dashboard indicator LED */}
-                    <div className="absolute top-4 right-4 flex items-center select-none">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white/10 border border-white/25 group-hover:animate-blink-amber group-hover:bg-[#EAB308] group-hover:shadow-[0_0_8px_#EAB308]" />
+            {/* Mobile View (Vertical stacked list layout) */}
+            <div className="lg:hidden flex flex-col gap-4 max-w-md mx-auto px-1">
+              {facilities.map((f, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#FFFDF6] border-2 border-dhaba-dark/15 p-4 rounded-2xl flex items-center justify-between text-left shadow-[4px_4px_0px_rgba(0,0,0,0.15)] hover:translate-y-[-2px] transition-transform duration-200"
+                >
+                  <div className="flex items-center gap-4">
+                    {/* Icon container */}
+                    <div className="w-12 h-12 rounded-full bg-[#B91C1C]/10 flex items-center justify-center text-[#B91C1C] shrink-0">
+                      {React.cloneElement(f.icon as React.ReactElement, { size: 22, strokeWidth: 2.2 })}
                     </div>
-
-                    <div className="text-dhaba-mustard mb-4">
-                      {React.cloneElement(f.icon as React.ReactElement, { size: 28, strokeWidth: 2 })}
-                    </div>
+                    {/* Text content */}
                     <div>
-                      <h3 className="font-display text-xs font-bold uppercase tracking-widest text-white mb-1">{f.name}</h3>
-                      <p className="text-dhaba-mustard/60 text-[9px] uppercase tracking-wider font-bold">{f.desc}</p>
+                      <h4 className="font-display text-sm font-black text-[#1C1917] uppercase tracking-wide">
+                        {f.name}
+                      </h4>
+                      <p className="font-sans text-xs text-stone-600 font-medium mt-0.5">
+                        {f.desc}
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
+                  {/* Arrow Icon */}
+                  <ChevronRight size={18} className="text-[#B91C1C] opacity-80 shrink-0" />
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="relative">
-            <div className="p-4 pb-14 bg-[#FFFDF6] border-4 border-dhaba-dark rounded-3xl shadow-[10px_10px_0px_#1C1917] rotate-2 hover:rotate-0 transition-transform duration-500 max-w-md md:max-w-lg mx-auto">
+          {/* RIGHT: Polaroid image card (Desktop only) */}
+          <div className="hidden lg:block relative">
+            <div className="p-4 pb-14 bg-[#FFFDF6] border-4 border-dhaba-dark rounded-3xl shadow-[10px_10px_0px_#1C1917] rotate-2 hover:rotate-0 transition-transform duration-500 max-w-md md:max-w-lg mx-auto text-dhaba-dark">
               <div className="rounded-xl overflow-hidden relative h-[400px] md:h-[460px] border-2 border-dhaba-dark bg-stone-900">
                 <img
                   src="/img/Lounge.jpeg"
                   alt="Luxury Lounge Preview"
-                  width={1000}
-                  height={668}
-                  loading="lazy"
-                  decoding="async"
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
               </div>
-              <p className="font-serif italic text-dhaba-dark text-center text-lg md:text-xl mt-6 select-none leading-none">
+              <p className="font-serif italic text-center text-lg md:text-xl mt-5 select-none leading-none">
                 ★ UTTHAM LOUNGE ★
               </p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
   );
 };
+
+const FoodShowcase = () => {
+  const foodImages = Array.from({ length: 17 }, (_, i) => ({
+    src: `/food-showcase/food-${i + 1}.jpeg`,
+    alt: `Delicious Food Option ${i + 1}`
+  }));
+
+  // Split into two balanced rows of 9 items each
+  const row1 = foodImages.slice(0, 9);
+  const row2 = [...foodImages.slice(9, 17), foodImages[0]];
+
+  const FoodCard = ({ img }: { img: { src: string; alt: string } }) => (
+    <div className="relative w-[120px] sm:w-[180px] lg:w-[320px] aspect-[4/3] rounded-[20px] lg:rounded-[32px] overflow-hidden border border-white/10 bg-stone-900 shadow-xl shadow-black/30 hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 group cursor-pointer flex-shrink-0">
+      <img
+        src={img.src}
+        alt={img.alt}
+        loading="lazy"
+        decoding="async"
+        className="w-full h-full object-cover"
+        referrerPolicy="no-referrer"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+    </div>
+  );
+
+  return (
+    <section id="food-showcase" className="py-20 md:py-28 bg-gradient-to-br from-[#931A1A] via-[#751111] to-[#4F0707] text-white relative overflow-hidden">
+      {/* Decorative elements to match red premium style */}
+      <div className="absolute top-0 left-0 p-12 opacity-10 pointer-events-none">
+        <ChefHat size={200} />
+      </div>
+      <div className="absolute inset-0 opacity-10 dhaba-pattern pointer-events-none" />
+
+      <div className="w-full relative z-10">
+        {/* Heading Section */}
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 mb-12 lg:mb-16 text-center lg:text-left">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white mb-4 max-w-[280px] sm:max-w-md lg:max-w-none mx-auto lg:mx-0 leading-[1.05]">
+            <span className="block">A Taste</span>
+            <span className="block text-dhaba-mustard lg:text-white">Worth the Stop</span>
+          </h2>
+          <p className="text-white/70 text-base sm:text-lg md:text-xl font-medium max-w-[290px] sm:max-w-xl lg:max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            From quick bites to full-course indulgence, explore a spread crafted for every traveler.
+          </p>
+        </div>
+
+        {/* Sliding Rows */}
+        <div className="flex flex-col gap-6 lg:gap-8 overflow-hidden w-full">
+          {/* Row 1: Left to Right */}
+          <div className="relative flex overflow-hidden w-full">
+            <motion.div
+              animate={{ x: [0, "-50%"] }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="flex gap-6 lg:gap-8 w-max"
+            >
+              {[...row1, ...row1].map((img, idx) => (
+                <FoodCard key={`r1-${idx}`} img={img} />
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Row 2: Right to Left */}
+          <div className="relative flex overflow-hidden w-full">
+            <motion.div
+              animate={{ x: ["-50%", 0] }}
+              transition={{
+                duration: 25,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+              className="flex gap-6 lg:gap-8 w-max"
+            >
+              {[...row2, ...row2].map((img, idx) => (
+                <FoodCard key={`r2-${idx}`} img={img} />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+
 
 const JugniFoodGallery = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -1573,6 +1624,7 @@ interface Brand {
   name: string;
   logo: string;
   subtitle: string;
+  fullBleed?: boolean;
 }
 
 interface BrandCardProps {
@@ -1627,7 +1679,11 @@ const BrandCard = ({ brand }: BrandCardProps) => {
           alt={brand.name}
           loading="lazy"
           decoding="async"
-          className="w-[65%] h-[65%] object-contain opacity-100 group-hover:scale-110 transition-all duration-700 -mt-8 drop-shadow-sm"
+          className={
+            brand.fullBleed
+              ? "w-full h-full object-cover opacity-100 group-hover:scale-110 transition-all duration-700 drop-shadow-sm"
+              : "w-full h-full object-contain p-4 opacity-100 group-hover:scale-110 transition-all duration-700 drop-shadow-sm"
+          }
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dhaba-dark via-dhaba-dark/40 to-transparent pointer-events-none" />
@@ -1668,42 +1724,50 @@ const Brands = () => {
     {
       name: "Blue Tokai Coffee",
       logo: "/Blue tokai HHd6.png",
-      subtitle: "Freshly roasted specialty coffee"
+      subtitle: "Freshly roasted specialty coffee",
+      fullBleed: true
     },
     {
       name: "Chaayos",
       logo: "/Chaayos HHd4.png",
-      subtitle: "Experiments with Chai."
+      subtitle: "Experiments with Chai.",
+      fullBleed: true
     },
     {
       name: "Naivedyam",
       logo: "/Naivedyam HHd5.png",
-      subtitle: "Authentic South Indian dining."
+      subtitle: "Authentic South Indian dining.",
+      fullBleed: true
     },
     {
       name: "Guardian Pharmacy",
       logo: "/gUARDIAN PHARMA d1.png",
-      subtitle: "Your trusted wellness partner."
+      subtitle: "Your trusted wellness partner.",
+      fullBleed: true
     },
     {
       name: "Chokhi Dhani",
       logo: "/Chokhi dhani HHd2.png",
-      subtitle: "Rajasthani cultural dining."
+      subtitle: "Rajasthani cultural dining.",
+      fullBleed: true
     },
     {
       name: "Uttham Lounge",
       logo: "/resturents icons/uthham.png",
-      subtitle: "Supreme Indian flavors and sweets."
+      subtitle: "Supreme Indian flavors and sweets.",
+      fullBleed: false
     },
     {
       name: "Jugni",
       logo: "/resturents icons/jugni.png",
-      subtitle: "North Indian meat artistry."
+      subtitle: "North Indian meat artistry.",
+      fullBleed: false
     },
     {
       name: "Three Sixty Lux",
       logo: "/three sixty HHd3.png",
-      subtitle: "Luxury lounge and bar."
+      subtitle: "Luxury lounge and bar.",
+      fullBleed: true
     }
   ];
 
@@ -2000,6 +2064,8 @@ export default function App() {
         <Hero />
         <RoadDivider />
         <LoungeSection />
+        <RoadDivider />
+        <FoodShowcase />
         <RoadDivider />
         <Highlights />
         <RoadDivider />
