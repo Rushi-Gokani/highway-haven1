@@ -101,8 +101,8 @@ const ReviewsMarquee = () => {
     <div className="flex flex-col bg-[#FFFBEB] text-dhaba-dark rounded-2xl border-3 border-dhaba-dark shadow-[6px_6px_0px_#1C1917] transition-all duration-300 relative select-none hover:translate-y-[-2px] min-w-[300px] w-[300px]">
       {/* Top: Rating & Ticket Info */}
       <div className="flex items-center justify-center gap-4 px-6 py-3 border-b-2 border-dashed border-dhaba-dark/30 relative">
-        <div className="absolute -bottom-[10px] -left-[10px] ticket-punch-hole bg-[#a41c1c]" />
-        <div className="absolute -bottom-[10px] -right-[10px] ticket-punch-hole bg-[#a41c1c]" />
+        <div className="absolute -bottom-[10px] -left-[10px] ticket-punch-hole bg-[#B91C1C]" />
+        <div className="absolute -bottom-[10px] -right-[10px] ticket-punch-hole bg-[#B91C1C]" />
 
         <span className="text-[7px] font-mono font-black tracking-widest text-[#B91C1C] uppercase leading-none">NH-1 PASS</span>
         <div className="flex gap-0.5 text-amber-500 fill-amber-500">
@@ -126,7 +126,7 @@ const ReviewsMarquee = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{ 
-          backgroundColor: "#a41c1c",
+          backgroundColor: "#B91C1C",
           clipPath: "polygon(0 4rem, 100% 0, 100% 100%, 0 100%)",
           marginTop: "-4rem"
         }}
@@ -193,7 +193,7 @@ const fbBrands = [
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [mobileRetailOpen, setMobileRetailOpen] = useState(false);
+
   const [mobileFbOpen, setMobileFbOpen] = useState(false);
 
   // Retro Horn States
@@ -306,14 +306,14 @@ const Nav = () => {
               className="hover-swing text-[#1C1917] hover:text-dhaba-red border-2 border-dhaba-dark hover:bg-dhaba-mustard/15 px-3 py-1.5 rounded-xl shadow-[3px_3px_0px_#1C1917] hover:shadow-[1px_1px_0px_#1C1917] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#FFFDF6] flex items-center gap-1.5 whitespace-nowrap"
             >
               <Users size={12} className="text-dhaba-red" />
-              <span>Group Bookings</span>
+              <span>Click to book</span>
             </a>
 
             {/* F&B Dropdown */}
             <div className="relative group py-2">
               <button className="hover-swing flex items-center gap-1.5 text-[#1C1917] hover:text-dhaba-red border-2 border-dhaba-dark hover:bg-dhaba-mustard/15 px-3 py-1.5 rounded-xl shadow-[3px_3px_0px_#1C1917] hover:shadow-[1px_1px_0px_#1C1917] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#FFFDF6] font-display font-black uppercase whitespace-nowrap">
                 <Coffee size={12} className="text-dhaba-red" />
-                <span>F&B</span> 
+                <span>List of Restaurants</span> 
                 <ChevronDown size={12} className="transition-transform duration-300 group-hover:rotate-180 text-dhaba-dark/60" />
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -338,31 +338,6 @@ const Nav = () => {
               </div>
             </div>
 
-            {/* Retail Dropdown */}
-            <div className="relative group py-2">
-              <button className="hover-swing flex items-center gap-1.5 text-[#1C1917] hover:text-dhaba-red border-2 border-dhaba-dark hover:bg-dhaba-mustard/15 px-3 py-1.5 rounded-xl shadow-[3px_3px_0px_#1C1917] hover:shadow-[1px_1px_0px_#1C1917] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#FFFDF6] font-display font-black uppercase whitespace-nowrap">
-                <Sparkles size={12} className="text-dhaba-red" />
-                <span>Retail</span> 
-                <ChevronDown size={12} className="transition-transform duration-300 group-hover:rotate-180 text-dhaba-dark/60" />
-              </button>
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                <div className="bg-[#FFFBEB] border-3 border-dhaba-dark rounded-2xl shadow-[6px_6px_0px_rgba(28,25,23,1)] p-1.5 w-56 flex flex-col overflow-hidden">
-                  <div className="border-2 border-dashed border-dhaba-dark/20 rounded-xl p-2 bg-[#FFFDF6] flex flex-col gap-0.5">
-                    {/* Retro Stamp Header */}
-                    <div className="px-3 py-1 border-b border-dhaba-dark/10 mb-1 text-center">
-                      <span className="text-[9px] font-display font-black text-dhaba-red tracking-widest">★ TRUCK SHOP ★</span>
-                    </div>
-                    <a 
-                      href="#brands" 
-                      className="group/item px-3 py-2 hover:bg-dhaba-mustard/20 rounded-lg transition-all duration-200 text-[10px] font-black tracking-widest text-[#1C1917]/80 hover:text-dhaba-red border-l-4 border-transparent hover:border-dhaba-red flex items-center justify-between"
-                    >
-                      <span>Leather 360</span>
-                      <span className="opacity-0 group-hover/item:opacity-100 transition-opacity duration-200 text-dhaba-red">→</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {/* Services Dropdown */}
             <div className="relative group py-2">
@@ -511,7 +486,7 @@ const Nav = () => {
                 onClick={() => setIsOpen(false)}
               >
                 <Users size={16} className="text-dhaba-red" />
-                Group bookings
+                Click to book
               </a>
               
               {/* Mobile F&B Accordion */}
@@ -521,7 +496,7 @@ const Nav = () => {
                   className="flex items-center justify-center gap-2 text-dhaba-dark hover:text-dhaba-red font-black uppercase tracking-wider text-base w-full py-1"
                 >
                   <Coffee size={16} className="text-dhaba-red" />
-                  F&B <ChevronDown size={18} className={mobileFbOpen ? "rotate-180 transition-transform" : "transition-transform"} />
+                  List of Restaurants <ChevronDown size={18} className={mobileFbOpen ? "rotate-180 transition-transform" : "transition-transform"} />
                 </button>
                 <AnimatePresence>
                   {mobileFbOpen && (
@@ -547,29 +522,6 @@ const Nav = () => {
                 </AnimatePresence>
               </div>
 
-              {/* Mobile Retail Accordion */}
-              <div className="flex flex-col gap-2">
-                <button
-                  onClick={() => setMobileRetailOpen(!mobileRetailOpen)}
-                  className="flex items-center justify-center gap-2 text-dhaba-dark hover:text-dhaba-red font-black uppercase tracking-wider text-base w-full py-1"
-                >
-                  <Sparkles size={16} className="text-dhaba-red" />
-                  Retail <ChevronDown size={18} className={mobileRetailOpen ? "rotate-180 transition-transform" : "transition-transform"} />
-                </button>
-                <AnimatePresence>
-                  {mobileRetailOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25, ease: "easeInOut" }}
-                      className="flex flex-col gap-2.5 bg-dhaba-mustard/10 border border-dhaba-dark/10 p-3.5 rounded-xl w-full overflow-hidden"
-                    >
-                      <a href="#brands" className="text-xs font-black text-dhaba-dark/80 hover:text-dhaba-red tracking-widest uppercase" onClick={() => setIsOpen(false)}>Leather 360</a>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
 
               {/* Mobile Services Accordion */}
               <div className="flex flex-col gap-2">
@@ -670,7 +622,7 @@ const Hero = () => {
       h: 224
     },
     {
-      name: "JUGNI DHABA",
+      name: "JUGNI",
       logo: "/resturents icons/jugni.png",
       tagline: "MULTICUISINE NON VEG & VEG",
       w: 225,
@@ -678,10 +630,11 @@ const Hero = () => {
     },
     {
       name: "BLUE TOKAI",
-      logo: "/resturents icons/blue tokai.png",
+      logo: "/resturents icons/Blue Tokai Cropped.png",
       tagline: "Proudly Indian. Honestly Crafted.",
       w: 225,
-      h: 225
+      h: 225,
+      imgClass: "h-20 object-contain scale-[1.15] mb-2"
     },
     {
       name: "NAIVEDYAM",
@@ -692,17 +645,19 @@ const Hero = () => {
     },
     {
       name: "CHAAYOS",
-      logo: "/resturents icons/chayos.png",
+      logo: "/resturents icons/Chhayos Cropped.png",
       tagline: "Meri Wali Chai",
       w: 404,
-      h: 316
+      h: 316,
+      imgClass: "h-20 object-contain mb-1"
     },
     {
       name: "GUARDIAN PHARMACY",
-      logo: "/gUARDIAN PHARMA d1.png",
+      logo: "/resturents icons/Guardian Pharma Cropped.png",
       tagline: "Your Trusted Health Partner",
       w: 225,
-      h: 225
+      h: 225,
+      imgClass: "h-20 scale-[1.2] object-contain mb-3 -translate-y-2"
     }
   ];
 
@@ -827,16 +782,18 @@ const Hero = () => {
           {/* Mobile 2-Column Grid */}
           <div className="md:hidden grid grid-cols-2 gap-x-3 gap-y-5 pb-4">
             {brands.map((brand, idx) => (
-              <div key={idx} className="flex flex-col items-center justify-between text-center py-4 px-1.5 border border-stone-100 rounded-2xl bg-stone-50/20 p-3 h-full">
-                <div className="flex flex-col items-center flex-grow justify-center">
-                  <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
-                  <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">{brand.name}</h3>
+              <div key={idx} className="flex flex-col items-center text-center py-4 px-1.5 border border-stone-100 rounded-2xl bg-stone-50/20 h-full w-full">
+                <div className="h-[80px] shrink-0 w-full flex items-center justify-center mb-1">
+                  <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className={(brand as any).imgClass || "max-h-[60px] object-contain"} />
                 </div>
-                <div className="w-full mt-3 flex flex-col items-center justify-center min-h-[38px]">
+                <div className="min-h-[32px] shrink-0 w-full flex items-start justify-center">
+                  <h3 className="font-display font-black text-[#1C1917] text-[12px] uppercase tracking-wide text-center leading-tight">{brand.name}</h3>
+                </div>
+                <div className="w-full flex-grow flex flex-col items-center justify-start mt-1">
                   <div className="text-[8.5px] font-display font-black text-[#1C1917] tracking-[0.3px] uppercase text-center leading-tight max-w-[130px]">
                     {brand.tagline}
                   </div>
-                  <div className="w-5 h-[1.5px] bg-[#B91C1C] mt-1.5" />
+                  <div className="w-5 h-[1.5px] bg-[#B91C1C] mt-2" />
                 </div>
               </div>
             ))}
@@ -845,12 +802,14 @@ const Hero = () => {
           {/* Desktop Grid Layout with Divider Borders */}
           <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-6 items-stretch md:divide-y-0 md:divide-x divide-stone-200 pb-4">
             {brands.map((brand, idx) => (
-              <div key={idx} className="flex flex-col items-center justify-between text-center px-2 py-4 hover:scale-105 transition-transform duration-300">
-                <div className="flex flex-col items-center flex-grow justify-center">
-                  <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className="h-14 object-contain mb-3" />
-                  <h3 className="font-display font-black text-[#1C1917] text-xs uppercase tracking-wide">{brand.name}</h3>
+              <div key={idx} className="flex flex-col items-center text-center px-2 py-4 hover:scale-105 transition-transform duration-300 h-full w-full">
+                <div className="h-[80px] shrink-0 w-full flex items-center justify-center mb-2">
+                  <img src={brand.logo} alt={brand.name} width={brand.w || undefined} height={brand.h || undefined} loading="lazy" decoding="async" className={(brand as any).imgClass || "max-h-[60px] object-contain"} />
                 </div>
-                <div className="w-full mt-3 h-7">
+                <div className="min-h-[32px] shrink-0 w-full flex items-start justify-center">
+                  <h3 className="font-display font-black text-[#1C1917] text-[13px] uppercase tracking-wide text-center leading-tight">{brand.name}</h3>
+                </div>
+                <div className="w-full flex-grow flex flex-col items-center justify-start mt-1">
                   <div className="text-[8.5px] font-display font-black text-[#1C1917] tracking-[0.3px] uppercase text-center leading-tight">
                     <div className="flex items-center justify-center gap-1.5">
                       <span className="w-2.5 h-[1.5px] bg-[#B91C1C] shrink-0" />
@@ -994,7 +953,7 @@ const Highlights = () => {
                   <img src={highlights[activeHighlight].img} alt={highlights[activeHighlight].title} width={1000} height={667} loading="lazy" decoding="async" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-dhaba-red/10" />
                 </div>
-                <div className="absolute top-36 left-8 bg-[#BC3030] p-4 rounded-xl border-3 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] text-white z-10">
+                <div className="absolute top-36 left-8 bg-[#B91C1C] p-4 rounded-xl border-3 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] text-white z-10">
                   {highlights[activeHighlight].icon}
                 </div>
                 <div className="p-8 pt-10 text-left">
@@ -1024,7 +983,7 @@ const Highlights = () => {
                 <button
                   key={idx}
                   onClick={() => setActiveHighlight(idx)}
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${activeHighlight === idx ? 'bg-[#BC3030] w-3' : 'bg-dhaba-dark/20'}`}
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${activeHighlight === idx ? 'bg-[#B91C1C] w-3' : 'bg-dhaba-dark/20'}`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
@@ -1053,7 +1012,7 @@ const Highlights = () => {
                 <img src={item.img} alt={item.title} width={1000} height={667} loading="lazy" decoding="async" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-dhaba-red/10 group-hover:bg-transparent transition-colors" />
               </div>
-              <div className="absolute top-36 left-8 bg-[#BC3030] p-4 rounded-xl border-3 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] text-white z-10 transition-transform group-hover:scale-110">
+              <div className="absolute top-36 left-8 bg-[#B91C1C] p-4 rounded-xl border-3 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] text-white z-10 transition-transform group-hover:scale-110">
                 {item.icon}
               </div>
               <div className="p-8 pt-10 text-left">
@@ -1072,16 +1031,27 @@ const Highlights = () => {
 };
 
 const LoungeSection = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const images = ["/img/Lounge.jpeg", "/lounge1.jpeg", "/lounge2.jpeg", "/lounge3.jpeg", "/lounge4.jpeg"];
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   const facilities = [
     { name: "Gourmet Buffet", icon: <UtensilsCrossed />, desc: "Breakfast, Lunch & Dinner" },
     { name: "Wash & Change", icon: <Bath />, desc: "Fresh up for the journey" },
     { name: "Nap Facility", icon: <Bed />, desc: "Quick rest in luxury" },
     { name: "Business Center", icon: <Briefcase />, desc: "Work on the go" },
-    { name: "Private Dining", icon: <ChefHat />, desc: "Exclusive meal space" }
+    { name: "Private Dining", icon: <ChefHat />, desc: "Exclusive meal space" },
+    { name: "Kids Play Area", icon: <Baby />, desc: "Fun zone for children" }
   ];
 
   return (
-    <section id="lounge" className="py-24 bg-gradient-to-br from-[#B91C1C] via-dhaba-red to-[#991B1B] text-white relative overflow-hidden">
+    <section id="lounge" className="py-24 bg-[#B91C1C] text-white relative overflow-hidden">
       <div className="absolute top-0 right-0 p-12 opacity-10">
         <Sparkles size={200} />
       </div>
@@ -1092,16 +1062,19 @@ const LoungeSection = () => {
         <div className="lg:hidden w-full max-w-4xl mb-6">
           <div className="p-4 pb-5 bg-[#FFFDF6] border-4 border-dhaba-dark rounded-3xl shadow-[10px_10px_0px_#1C1917] transition-transform duration-500 hover:scale-[1.01] w-full text-dhaba-dark">
             <div className="rounded-xl overflow-hidden relative h-[220px] sm:h-[320px] border-2 border-dhaba-dark bg-stone-900">
-              <img
-                src="/img/Lounge.jpeg"
-                alt="Luxury Lounge Preview"
-                width={1000}
-                height={668}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+              {images.map((img, idx) => (
+                <img
+                  key={idx}
+                  src={img}
+                  alt={`Luxury Lounge Preview ${idx + 1}`}
+                  loading="lazy"
+                  decoding="async"
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                    idx === currentSlide ? "opacity-100" : "opacity-0"
+                  }`}
+                  referrerPolicy="no-referrer"
+                />
+              ))}
               <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
             </div>
             <p className="font-serif italic text-center text-lg md:text-xl mt-4 select-none leading-none">
@@ -1181,11 +1154,19 @@ const LoungeSection = () => {
           <div className="hidden lg:block relative">
             <div className="p-4 pb-14 bg-[#FFFDF6] border-4 border-dhaba-dark rounded-3xl shadow-[10px_10px_0px_#1C1917] rotate-2 hover:rotate-0 transition-transform duration-500 max-w-md md:max-w-lg mx-auto text-dhaba-dark">
               <div className="rounded-xl overflow-hidden relative h-[400px] md:h-[460px] border-2 border-dhaba-dark bg-stone-900">
-                <img
-                  src="/img/Lounge.jpeg"
-                  alt="Luxury Lounge Preview"
-                  className="w-full h-full object-cover"
-                />
+                {images.map((img, idx) => (
+                  <img
+                    key={idx}
+                    src={img}
+                    alt={`Luxury Lounge Preview ${idx + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                      idx === currentSlide ? "opacity-100" : "opacity-0"
+                    }`}
+                    referrerPolicy="no-referrer"
+                  />
+                ))}
               </div>
               <p className="font-serif italic text-center text-lg md:text-xl mt-5 select-none leading-none">
                 ★ UTTHAM LOUNGE ★
@@ -1223,7 +1204,7 @@ const FoodShowcase = () => {
   );
 
   return (
-    <section id="food-showcase" className="py-20 md:py-28 bg-gradient-to-br from-[#931A1A] via-[#751111] to-[#4F0707] text-white relative overflow-hidden">
+    <section id="food-showcase" className="py-20 md:py-28 bg-[#B91C1C] text-white relative overflow-hidden">
       {/* Decorative elements to match red premium style */}
       <div className="absolute top-0 left-0 p-12 opacity-10 pointer-events-none">
         <ChefHat size={200} />
@@ -1564,9 +1545,9 @@ const GroupBookings = () => {
               ))}
             </div>
 
-            <button className="w-full md:w-fit bg-[#FFFBEB] text-[#BC3030] px-12 py-5 border-3 border-dhaba-dark shadow-[6px_6px_0px_#1C1917] hover:shadow-[2px_2px_0px_#1C1917] hover:translate-x-[4px] hover:translate-y-[4px] active:scale-95 transition-all font-display font-black text-xl md:text-2xl hover:bg-dhaba-mustard hover:text-dhaba-dark flex items-center justify-center gap-6 uppercase tracking-[0.2em] group">
+            <a href="tel:+919883952115" className="w-full md:w-fit bg-[#FFFBEB] text-[#B91C1C] px-12 py-5 border-3 border-dhaba-dark shadow-[6px_6px_0px_#1C1917] hover:shadow-[2px_2px_0px_#1C1917] hover:translate-x-[4px] hover:translate-y-[4px] active:scale-95 transition-all font-display font-black text-xl md:text-2xl hover:bg-dhaba-mustard hover:text-dhaba-dark flex items-center justify-center gap-6 uppercase tracking-[0.2em] group">
               ENQUIRE NOW <ChevronRight size={24} className="group-hover:translate-x-2 transition-transform" />
-            </button>
+            </a>
           </div>
 
           {/* Immersive Images */}
@@ -1723,7 +1704,7 @@ const Brands = () => {
   const brands = [
     {
       name: "Blue Tokai Coffee",
-      logo: "/Blue tokai HHd6.png",
+      logo: "/bt_logo_new.jpg",
       subtitle: "Freshly roasted specialty coffee",
       fullBleed: true
     },
@@ -1741,7 +1722,7 @@ const Brands = () => {
     },
     {
       name: "Guardian Pharmacy",
-      logo: "/gUARDIAN PHARMA d1.png",
+      logo: "/guardian_pharma_new.png",
       subtitle: "Your trusted wellness partner.",
       fullBleed: true
     },
@@ -1762,17 +1743,11 @@ const Brands = () => {
       logo: "/resturents icons/jugni.png",
       subtitle: "North Indian meat artistry.",
       fullBleed: false
-    },
-    {
-      name: "Three Sixty Lux",
-      logo: "/three sixty HHd3.png",
-      subtitle: "Luxury lounge and bar.",
-      fullBleed: true
     }
   ];
 
   return (
-    <section className="py-24 md:py-32 overflow-hidden" style={{ backgroundColor: "#a41c1c" }}>
+    <section className="py-24 md:py-32 overflow-hidden" style={{ backgroundColor: "#B91C1C" }}>
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16">
         <div className="text-center mb-16 md:mb-24">
           <span className="font-serif italic text-dhaba-mustard text-2xl">Premium Amenities</span>
@@ -1921,7 +1896,7 @@ const MilestoneIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="bg-[#BC3030] text-white pt-24 pb-16 relative overflow-hidden border-t-4 border-dhaba-dark">
+    <footer className="bg-[#B91C1C] text-white pt-24 pb-16 relative overflow-hidden border-t-4 border-dhaba-dark">
       {/* Retro Bumper Safety/Hazard Strip Divider */}
       <div className="absolute top-0 left-0 w-full h-[12px] hazard-strip border-b-3 border-dhaba-dark" />
       
@@ -2006,11 +1981,11 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#groups" className="hover:text-dhaba-mustard transition-colors flex items-center gap-1.5 group">
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-dhaba-mustard">→</span> Group Bookings
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-dhaba-mustard">→</span> Click to book
                 </a>
               </li>
               <li>
-                <a href="#location" className="hover:text-dhaba-mustard transition-colors flex items-center gap-1.5 group">
+                <a href="https://www.google.com/maps/place/HIGHWAY+HAVEN/@29.1562933,77.0342687,17z/data=!3m1!4b1!4m6!3m5!1s0x390dc900750c276f:0x3848e514f5da0fc4!8m2!3d29.1562933!4d77.0342687!16s%2Fg%2F11wwhd7gjp?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="hover:text-dhaba-mustard transition-colors flex items-center gap-1.5 group">
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-dhaba-mustard">→</span> Location
                 </a>
               </li>
