@@ -123,59 +123,59 @@ const ReviewsMarquee = () => {
   return (
     <section className="relative py-24 md:py-32 overflow-visible">
       {/* Tilted Top Background Layer */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
-        style={{ 
+        style={{
           backgroundColor: "#B91C1C",
           clipPath: "polygon(0 4rem, 100% 0, 100% 100%, 0 100%)",
           marginTop: "-4rem"
         }}
       />
-      
+
       <div className="relative z-10 pt-4 md:pt-8">
-      {/* Section Header */}
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 relative z-20 mb-20 text-center">
-        <span className="font-serif italic text-dhaba-mustard text-2xl mb-4 block">Experiences That Speak for Themselves</span>
-        <h2 className="font-display text-xl md:text-2xl text-white/80 tracking-tight leading-snug max-w-2xl mx-auto uppercase">
-          Discover why travelers choose us for comfort, convenience, and a <span className="text-dhaba-mustard font-black">refined stopover.</span>
-        </h2>
-        <div className="w-20 h-1 bg-dhaba-mustard/30 mx-auto mt-8 rounded-full" />
-      </div>
-
-      {/* Decorative background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/5 blur-[120px] pointer-events-none" />
-
-      <div className="flex flex-col gap-10 pointer-events-none overflow-hidden w-full">
-        {/* Row 1 */}
-        <div className="relative">
-          <motion.div
-            animate={{ x: [0, -1920] }}
-            transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-            className="flex whitespace-nowrap gap-10"
-          >
-            {[...reviewsRow1, ...reviewsRow1, ...reviewsRow1].map((r, i) => (
-              <ReviewItem key={i} text={r.text} author={r.author} />
-            ))}
-          </motion.div>
+        {/* Section Header */}
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 relative z-20 mb-20 text-center">
+          <span className="font-serif italic text-dhaba-mustard text-2xl mb-4 block">Experiences That Speak for Themselves</span>
+          <h2 className="font-display text-xl md:text-2xl text-white/80 tracking-tight leading-snug max-w-2xl mx-auto uppercase">
+            Discover why travelers choose us for comfort, convenience, and a <span className="text-dhaba-mustard font-black">refined stopover.</span>
+          </h2>
+          <div className="w-20 h-1 bg-dhaba-mustard/30 mx-auto mt-8 rounded-full" />
         </div>
 
-        {/* Row 2 */}
-        <div className="relative">
-          <motion.div
-            animate={{ x: [-1920, 0] }}
-            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-            className="flex whitespace-nowrap gap-10"
-          >
-            {[...reviewsRow2, ...reviewsRow2, ...reviewsRow2].map((r, i) => (
-              <ReviewItem key={i} text={r.text} author={r.author} />
-            ))}
-          </motion.div>
-        </div>
-      </div>
+        {/* Decorative background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/5 blur-[120px] pointer-events-none" />
 
-      {/* Side gradients to fade out reviews */}
-      <div className="hidden md:block absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-dhaba-red via-dhaba-red/80 to-transparent z-10" />
-      <div className="hidden md:block absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-dhaba-red via-dhaba-red/80 to-transparent z-10" />
+        <div className="flex flex-col gap-10 pointer-events-none overflow-hidden w-full">
+          {/* Row 1 */}
+          <div className="relative">
+            <motion.div
+              animate={{ x: [0, -1920] }}
+              transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
+              className="flex whitespace-nowrap gap-10"
+            >
+              {[...reviewsRow1, ...reviewsRow1, ...reviewsRow1].map((r, i) => (
+                <ReviewItem key={i} text={r.text} author={r.author} />
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Row 2 */}
+          <div className="relative">
+            <motion.div
+              animate={{ x: [-1920, 0] }}
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              className="flex whitespace-nowrap gap-10"
+            >
+              {[...reviewsRow2, ...reviewsRow2, ...reviewsRow2].map((r, i) => (
+                <ReviewItem key={i} text={r.text} author={r.author} />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Side gradients to fade out reviews */}
+        <div className="hidden md:block absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-dhaba-red via-dhaba-red/80 to-transparent z-10" />
+        <div className="hidden md:block absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-dhaba-red via-dhaba-red/80 to-transparent z-10" />
       </div>
     </section>
   );
@@ -211,34 +211,34 @@ const Nav = () => {
       const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
       if (!AudioContext) return;
       const ctx = new AudioContext();
-      
+
       const playBeep = (delay: number, duration: number, freq: number) => {
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
-        
+
         osc.type = "sawtooth"; // retro synth brass tone
         osc.frequency.setValueAtTime(freq, ctx.currentTime + delay);
-        
+
         // Second harmonic for dual-tone truck horn flavor
         const osc2 = ctx.createOscillator();
         osc2.type = "sine";
         osc2.frequency.setValueAtTime(freq * 1.25, ctx.currentTime + delay);
-        
+
         gain.gain.setValueAtTime(0, ctx.currentTime + delay);
         gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + delay + 0.02);
         gain.gain.setValueAtTime(0.12, ctx.currentTime + delay + duration - 0.04);
         gain.gain.linearRampToValueAtTime(0, ctx.currentTime + delay + duration);
-        
+
         osc.connect(gain);
         osc2.connect(gain);
         gain.connect(ctx.destination);
-        
+
         osc.start(ctx.currentTime + delay);
         osc2.start(ctx.currentTime + delay);
         osc.stop(ctx.currentTime + delay + duration);
         osc2.stop(ctx.currentTime + delay + duration);
       };
-      
+
       // Honk Honk!
       playBeep(0, 0.15, 390);
       playBeep(0.18, 0.15, 390);
@@ -268,28 +268,28 @@ const Nav = () => {
     <nav className="sticky top-0 z-50 bg-[#FFFBEB] text-[#1C1917] border-b-4 border-dhaba-dark shadow-[0_4px_0px_rgba(28,25,23,1)]">
       {/* Retro Bumper Safety/Hazard Strip */}
       <div className="h-[6px] w-full hazard-strip border-b-2 border-dhaba-dark" />
-      
+
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16">
         <div className="flex justify-between h-20 items-center">
-          
+
           {/* Logo & Retro Badges */}
           <div className="flex items-center gap-3">
             <div className="flex items-center hover:scale-105 transition-transform duration-300 relative group cursor-pointer">
-              <img 
-                src="/BIG_HH.png" 
-                alt="Highway Haven Logo" 
+              <img
+                src="/BIG_HH.png"
+                alt="Highway Haven Logo"
                 fetchPriority="high"
                 loading="eager"
-                className="h-16 w-auto object-contain filter drop-shadow-sm animate-logo-glow" 
+                className="h-16 w-auto object-contain filter drop-shadow-sm animate-logo-glow"
               />
             </div>
-            
+
             {/* Retro Diner Blinking Neon Badge */}
             <div className="hidden sm:flex flex-col items-center justify-center bg-[#1C1917] px-2.5 py-0.5 border-2 border-dhaba-red rounded-lg shadow-[0_0_12px_rgba(185,28,28,0.4),inset_0_0_4px_rgba(185,28,28,0.2)] rotate-[-2deg] select-none scale-90">
               <span className="text-[8px] font-display font-black text-dhaba-mustard tracking-widest leading-none">HIGHWAY</span>
               <span className="text-[10px] font-mono font-black animate-neon-flicker tracking-tighter leading-tight">★ OPEN 24/7 ★</span>
             </div>
-            
+
             {/* Dashboard Blinkers */}
             <div className="hidden md:flex gap-1.5 items-center bg-[#1C1917] px-2 py-0.5 rounded-full border-2 border-dhaba-dark shadow-[inset_0_1px_3px_rgba(0,0,0,0.5)] scale-90">
               <span className="w-1.5 h-1.5 rounded-full animate-blink-red" title="Alert Red" />
@@ -299,10 +299,10 @@ const Nav = () => {
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-6 font-display font-black text-xs tracking-widest uppercase select-none">
-            
+
             {/* Group Bookings swinging board */}
-            <a 
-              href="#groups" 
+            <a
+              href="#groups"
               className="hover-swing text-[#1C1917] hover:text-dhaba-red border-2 border-dhaba-dark hover:bg-dhaba-mustard/15 px-3 py-1.5 rounded-xl shadow-[3px_3px_0px_#1C1917] hover:shadow-[1px_1px_0px_#1C1917] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#FFFDF6] flex items-center gap-1.5 whitespace-nowrap"
             >
               <Users size={12} className="text-dhaba-red" />
@@ -313,7 +313,7 @@ const Nav = () => {
             <div className="relative group py-2">
               <button className="hover-swing flex items-center gap-1.5 text-[#1C1917] hover:text-dhaba-red border-2 border-dhaba-dark hover:bg-dhaba-mustard/15 px-3 py-1.5 rounded-xl shadow-[3px_3px_0px_#1C1917] hover:shadow-[1px_1px_0px_#1C1917] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#FFFDF6] font-display font-black uppercase whitespace-nowrap">
                 <Coffee size={12} className="text-dhaba-red" />
-                <span>List of Restaurants</span> 
+                <span>List of Restaurants</span>
                 <ChevronDown size={12} className="transition-transform duration-300 group-hover:rotate-180 text-dhaba-dark/60" />
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -343,7 +343,7 @@ const Nav = () => {
             <div className="relative group py-2">
               <button className="hover-swing flex items-center gap-1.5 text-[#1C1917] hover:text-dhaba-red border-2 border-dhaba-dark hover:bg-dhaba-mustard/15 px-3 py-1.5 rounded-xl shadow-[3px_3px_0px_#1C1917] hover:shadow-[1px_1px_0px_#1C1917] hover:translate-x-[2px] hover:translate-y-[2px] transition-all bg-[#FFFDF6] font-display font-black uppercase whitespace-nowrap">
                 <Zap size={12} className="text-dhaba-red" />
-                <span>Services</span> 
+                <span>Services</span>
                 <ChevronDown size={12} className="transition-transform duration-300 group-hover:rotate-180 text-dhaba-dark/60" />
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -353,15 +353,15 @@ const Nav = () => {
                     <div className="px-3 py-1 border-b border-dhaba-dark/10 mb-1 text-center">
                       <span className="text-[9px] font-display font-black text-dhaba-red tracking-widest">★ HIGHWAY SEVA ★</span>
                     </div>
-                    <a 
-                      href="#highlights" 
+                    <a
+                      href="#highlights"
                       className="group/item px-3 py-2 hover:bg-dhaba-mustard/20 rounded-lg transition-all duration-200 text-[10px] font-black tracking-widest text-[#1C1917]/80 hover:text-dhaba-red border-l-4 border-transparent hover:border-dhaba-red flex items-center justify-between"
                     >
                       <span>Ev charging</span>
                       <span className="opacity-0 group-hover/item:opacity-100 transition-opacity duration-200 text-dhaba-red">→</span>
                     </a>
-                    <a 
-                      href="#brands" 
+                    <a
+                      href="#brands"
                       className="group/item px-3 py-2 hover:bg-dhaba-mustard/20 rounded-lg transition-all duration-200 text-[10px] font-black tracking-widest text-[#1C1917]/80 hover:text-dhaba-red border-l-4 border-transparent hover:border-dhaba-red flex items-center justify-between"
                     >
                       <span>Guardian pharmacy</span>
@@ -374,7 +374,7 @@ const Nav = () => {
 
             {/* Interactive Horn Button */}
             <div className="relative flex items-center">
-              <button 
+              <button
                 onClick={handleHornClick}
                 onMouseEnter={() => setHornHovered(true)}
                 onMouseLeave={() => setHornHovered(false)}
@@ -386,7 +386,7 @@ const Nav = () => {
                 </span>
                 <span className="font-display font-black text-[9px] tracking-widest uppercase">HORN OK PLEASE</span>
               </button>
-              
+
               {/* Visual Sound Waves */}
               {/* Visual Sound Waves */}
               {isHornActive && (
@@ -424,12 +424,12 @@ const Nav = () => {
               <span className="w-1.5 h-1.5 bg-stone-500 rounded-full border border-dhaba-dark absolute top-1 right-1 shadow-sm opacity-80" />
               <span className="w-1.5 h-1.5 bg-stone-500 rounded-full border border-dhaba-dark absolute bottom-1 left-1 shadow-sm opacity-80" />
               <span className="w-1.5 h-1.5 bg-stone-500 rounded-full border border-dhaba-dark absolute bottom-1 right-1 shadow-sm opacity-80" />
-              
+
               {/* NH-44 Tag */}
               <span className="text-[8px] bg-dhaba-teal text-white px-1.5 py-0.5 border border-dhaba-dark rounded uppercase tracking-tighter absolute -left-3 -top-1.5 rotate-[-12deg] shadow-[2px_2px_0px_rgba(28,25,23,1)] font-mono group-hover:scale-105 transition-transform">
                 NH-44
               </span>
-  
+
               <span className="flex items-center gap-1">
                 Get directions <MapPin size={12} className="text-dhaba-red" />
               </span>
@@ -439,9 +439,9 @@ const Nav = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            
+
             {/* Tiny Horn on mobile too */}
-            <button 
+            <button
               onClick={handleHornClick}
               aria-label="Play horn sound"
               className="w-10 h-10 bg-dhaba-red text-white border-2 border-dhaba-dark shadow-[2px_2px_0px_rgba(28,25,23,1)] rounded-xl flex items-center justify-center hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_rgba(28,25,23,1)] transition-all active:scale-95 relative"
@@ -457,7 +457,7 @@ const Nav = () => {
               )}
             </button>
 
-            <button 
+            <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
               className="w-12 h-12 bg-dhaba-mustard border-3 border-dhaba-dark shadow-[3px_3px_0px_rgba(28,25,23,1)] rounded-xl flex items-center justify-center hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[1px_1px_0px_rgba(28,25,23,1)] transition-all text-dhaba-dark active:scale-95"
@@ -479,16 +479,16 @@ const Nav = () => {
             className="md:hidden bg-[#FFFBEB] border-t-4 border-dhaba-dark p-5 flex flex-col gap-4 font-display text-base text-center border-x-4 border-b-4 rounded-b-[32px] mx-2 relative z-50 shadow-[4px_4px_0px_rgba(28,25,23,1)]"
           >
             <div className="border-2 border-dashed border-dhaba-dark/20 rounded-2xl p-4 bg-[#FFFDF6] flex flex-col gap-4">
-              
-              <a 
-                href="#groups" 
-                className="text-dhaba-dark hover:text-dhaba-red font-black uppercase tracking-wider text-base py-1.5 border-b border-dhaba-dark/5 flex items-center justify-center gap-2" 
+
+              <a
+                href="#groups"
+                className="text-dhaba-dark hover:text-dhaba-red font-black uppercase tracking-wider text-base py-1.5 border-b border-dhaba-dark/5 flex items-center justify-center gap-2"
                 onClick={() => setIsOpen(false)}
               >
                 <Users size={16} className="text-dhaba-red" />
                 Click to book
               </a>
-              
+
               {/* Mobile F&B Accordion */}
               <div className="flex flex-col gap-2">
                 <button
@@ -508,10 +508,10 @@ const Nav = () => {
                       className="flex flex-col gap-2.5 bg-dhaba-mustard/10 border border-dhaba-dark/10 p-3.5 rounded-xl w-full overflow-hidden"
                     >
                       {fbBrands.map((brand) => (
-                        <a 
-                          key={brand} 
-                          href="#brands" 
-                          className="text-xs font-black text-dhaba-dark/80 hover:text-dhaba-red tracking-widest uppercase border-b border-dhaba-dark/5 pb-1.5 last:border-0 last:pb-0" 
+                        <a
+                          key={brand}
+                          href="#brands"
+                          className="text-xs font-black text-dhaba-dark/80 hover:text-dhaba-red tracking-widest uppercase border-b border-dhaba-dark/5 pb-1.5 last:border-0 last:pb-0"
                           onClick={() => setIsOpen(false)}
                         >
                           {brand}
@@ -560,7 +560,7 @@ const Nav = () => {
                 <span className="w-1 h-1 bg-stone-500 rounded-full border border-dhaba-dark absolute top-1 right-1 opacity-80" />
                 <span className="w-1 h-1 bg-stone-500 rounded-full border border-dhaba-dark absolute bottom-1 left-1 opacity-80" />
                 <span className="w-1 h-1 bg-stone-500 rounded-full border border-dhaba-dark absolute bottom-1 right-1 opacity-80" />
-                
+
                 Get directions <MapPin size={16} className="text-dhaba-red" />
               </a>
 
@@ -673,7 +673,7 @@ const Hero = () => {
 
       {/* Main Content Area */}
       <div className="relative z-10 w-full max-w-none mx-auto px-4 sm:px-8 lg:px-16 pt-24 pb-12 flex-grow flex flex-col items-center justify-center gap-6">
-        
+
         {/* 1. HIGHWAY HAVEN Logo Container (No background, floating logo with premium glow) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -686,14 +686,14 @@ const Hero = () => {
           className="relative select-none text-center mx-auto max-w-sm md:max-w-xl group flex items-center justify-center pt-8 pb-4"
         >
           {/* Sparkles around logo */}
-          <motion.span 
+          <motion.span
             animate={{ scale: [1, 1.25, 1], rotate: [0, 20, 0] }}
             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
             className="absolute -left-12 top-6 text-4xl text-dhaba-red filter drop-shadow-[0_0_8px_rgba(185,28,28,0.5)] select-none font-bold hidden sm:inline"
           >
             ✦
           </motion.span>
-          <motion.span 
+          <motion.span
             animate={{ scale: [1.25, 1, 1.25], rotate: [0, -20, 0] }}
             transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
             className="absolute -right-12 bottom-6 text-4xl text-dhaba-red filter drop-shadow-[0_0_8px_rgba(185,28,28,0.5)] select-none font-bold hidden sm:inline"
@@ -701,10 +701,10 @@ const Hero = () => {
             ✦
           </motion.span>
           <span className="absolute left-1/2 -top-2 -translate-x-1/2 text-2xl text-dhaba-red animate-pulse hidden sm:inline">✦</span>
-          
-          <img 
-            src="/BIG_HH.png" 
-            alt="Highway Haven" 
+
+          <img
+            src="/BIG_HH.png"
+            alt="Highway Haven"
             fetchPriority="high"
             loading="eager"
             className="h-28 md:h-44 w-auto object-contain mx-auto animate-logo-glow group-hover:scale-105 transition-transform duration-500"
@@ -732,7 +732,7 @@ const Hero = () => {
             <svg className="h-full w-4 sm:w-6 text-[#B91C1C] fill-current flex-shrink-0" viewBox="0 0 24 100" preserveAspectRatio="none">
               <polygon points="24,0 0,10 24,20 0,30 24,40 0,50 24,60 0,70 24,80 0,90 24,100" />
             </svg>
-            
+
             {/* Center text content */}
             <div className="flex-grow flex items-center justify-center bg-[#B91C1C] text-white font-display font-black text-lg sm:text-4xl lg:text-5xl tracking-tight uppercase px-4 select-none drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
               SKIP THE MURTHAL RUSH
@@ -828,7 +828,7 @@ const Hero = () => {
       {/* High-Fidelity Highlights Strip */}
       <div className="relative z-10 w-full bg-[#820d0d] py-6 px-4 md:px-8 border-t-4 border-dhaba-mustard shadow-[0_-8px_30px_rgb(0,0,0,0.3)]">
         <div className="w-full max-w-none mx-auto grid grid-cols-2 gap-y-6 gap-x-2 sm:flex sm:flex-row sm:flex-wrap lg:flex-nowrap justify-between items-stretch sm:items-center sm:gap-8 md:gap-4">
-          
+
           {/* Item 1: Ample Parking */}
           <div className="flex items-center gap-4 hover:scale-105 transition-transform duration-300 select-none flex-1 justify-center sm:justify-start">
             <ParkingIcon />
@@ -969,7 +969,7 @@ const Highlights = () => {
           {/* Navigation Row */}
           <div className="flex items-center gap-6 mt-6 justify-center">
             {/* Left Arrow Button */}
-            <button 
+            <button
               onClick={() => setActiveHighlight((prev) => (prev === 0 ? highlights.length - 1 : prev - 1))}
               className="w-8 h-8 bg-dhaba-dark text-white rounded-full flex items-center justify-center transition-all hover:bg-dhaba-dark/80 active:scale-90 cursor-pointer"
               aria-label="Previous highlight"
@@ -990,7 +990,7 @@ const Highlights = () => {
             </div>
 
             {/* Right Arrow Button */}
-            <button 
+            <button
               onClick={() => setActiveHighlight((prev) => (prev === highlights.length - 1 ? 0 : prev + 1))}
               className="w-8 h-8 bg-dhaba-dark text-white rounded-full flex items-center justify-center transition-all hover:bg-dhaba-dark/80 active:scale-90 cursor-pointer"
               aria-label="Next highlight"
@@ -1032,7 +1032,12 @@ const Highlights = () => {
 
 const LoungeSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const images = ["/img/Lounge.jpeg", "/lounge1.jpeg", "/lounge2.jpeg", "/lounge3.jpeg", "/lounge4.jpeg"];
+  const images = [
+    "/replaced_images/img2.jpeg",
+    "/replaced_images/img3.jpeg",
+    "/replaced_images/img4.jpeg",
+    "/replaced_images/img5.jpeg"
+  ];
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -1069,9 +1074,8 @@ const LoungeSection = () => {
                   alt={`Luxury Lounge Preview ${idx + 1}`}
                   loading="lazy"
                   decoding="async"
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                    idx === currentSlide ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === currentSlide ? "opacity-100" : "opacity-0"
+                    }`}
                   referrerPolicy="no-referrer"
                 />
               ))}
@@ -1161,9 +1165,8 @@ const LoungeSection = () => {
                     alt={`Luxury Lounge Preview ${idx + 1}`}
                     loading="lazy"
                     decoding="async"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-                      idx === currentSlide ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${idx === currentSlide ? "opacity-100" : "opacity-0"
+                      }`}
                     referrerPolicy="no-referrer"
                   />
                 ))}
@@ -1294,7 +1297,7 @@ const JugniFoodGallery = () => {
   return (
     <section className="relative py-24 md:py-40 overflow-visible">
       {/* Tilted Background Layer */}
-      <div 
+      <div
         className="absolute inset-x-0 top-0 -bottom-16 -skew-y-2 origin-left z-0"
         style={{ backgroundColor: "#EAB308" }}
       />
@@ -1390,11 +1393,10 @@ const JugniFoodGallery = () => {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mt-8">
               <button
                 onClick={() => setSlideIndex(0)}
-                className={`px-5 py-2.5 rounded-xl border-3 border-dhaba-dark font-display font-black text-xs uppercase tracking-wider transition-all duration-300 ${
-                  slideIndex === 0 
-                    ? "bg-[#B91C1C] text-white shadow-[3px_3px_0px_#1C1917]" 
-                    : "bg-white text-dhaba-dark hover:bg-stone-50 shadow-[1px_1px_0px_#1C1917]"
-                }`}
+                className={`px-5 py-2.5 rounded-xl border-3 border-dhaba-dark font-display font-black text-xs uppercase tracking-wider transition-all duration-300 ${slideIndex === 0
+                  ? "bg-[#B91C1C] text-white shadow-[3px_3px_0px_#1C1917]"
+                  : "bg-white text-dhaba-dark hover:bg-stone-50 shadow-[1px_1px_0px_#1C1917]"
+                  }`}
               >
                 JUGNI SPECIALS
               </button>
@@ -1415,9 +1417,8 @@ const JugniFoodGallery = () => {
                     <button
                       key={idx}
                       onClick={() => setSlideIndex(idx)}
-                      className={`h-3.5 rounded-full border-2 border-dhaba-dark transition-all duration-300 ${
-                        slideIndex === idx ? "w-8 bg-[#B91C1C] shadow-[1px_1px_0px_#1C1917]" : "w-3.5 bg-white"
-                      }`}
+                      className={`h-3.5 rounded-full border-2 border-dhaba-dark transition-all duration-300 ${slideIndex === idx ? "w-8 bg-[#B91C1C] shadow-[1px_1px_0px_#1C1917]" : "w-3.5 bg-white"
+                        }`}
                       aria-label={`Go to slide ${idx + 1}`}
                     />
                   ))}
@@ -1439,19 +1440,19 @@ const JugniFoodGallery = () => {
 };
 
 const GallerySection = () => {
-  const images = Array.from({ length: 15 }, (_, i) => `/Gallery/gallery-${i + 1}.jpeg`);
-  
-  const row1 = images.slice(0, 8);
-  const row2 = images.slice(8, 15);
+  const images = Array.from({ length: 13 }, (_, i) => `/replaced_images/img${i + 1}.jpeg`);
+
+  const row1 = images;
+  const row2 = [...images].reverse();
 
   const GalleryImage = ({ src }: { src: string }) => (
     <div className="relative w-[280px] md:w-[400px] aspect-[4/3] rounded-3xl overflow-hidden border-4 border-dhaba-dark shadow-[6px_6px_0px_#1C1917] group flex-shrink-0 bg-stone-900 cursor-pointer">
-      <img 
-        src={src} 
-        alt="Highway Haven Gallery" 
-        loading="lazy" 
-        decoding="async" 
-        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" 
+      <img
+        src={src}
+        alt="Highway Haven Gallery"
+        loading="lazy"
+        decoding="async"
+        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
         referrerPolicy="no-referrer"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
@@ -1476,28 +1477,42 @@ const GallerySection = () => {
 
         <div className="flex flex-col gap-8 pb-10">
           {/* Row 1 */}
-          <div className="relative flex overflow-hidden">
+          <div className="relative flex overflow-hidden w-full">
             <motion.div
-              animate={{ x: [0, -3200] }}
+              animate={{ x: ["0%", "-50%"] }}
               transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-              className="flex whitespace-nowrap gap-6 px-3 hover:[animation-play-state:paused]"
+              className="flex flex-nowrap w-max"
             >
-              {[...row1, ...row1, ...row1].map((src, idx) => (
-                <GalleryImage key={`r1-${idx}`} src={src} />
-              ))}
+              <div className="flex shrink-0 gap-6 pr-6">
+                {row1.map((src, idx) => (
+                  <GalleryImage key={`r1-a-${idx}`} src={src} />
+                ))}
+              </div>
+              <div className="flex shrink-0 gap-6 pr-6">
+                {row1.map((src, idx) => (
+                  <GalleryImage key={`r1-b-${idx}`} src={src} />
+                ))}
+              </div>
             </motion.div>
           </div>
 
           {/* Row 2 */}
-          <div className="relative flex overflow-hidden">
+          <div className="relative flex overflow-hidden w-full">
             <motion.div
-              animate={{ x: [-3200, 0] }}
-              transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
-              className="flex whitespace-nowrap gap-6 px-3 hover:[animation-play-state:paused]"
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{ duration: 65, repeat: Infinity, ease: "linear" }}
+              className="flex flex-nowrap w-max"
             >
-              {[...row2, ...row2, ...row2].map((src, idx) => (
-                <GalleryImage key={`r2-${idx}`} src={src} />
-              ))}
+              <div className="flex shrink-0 gap-6 pr-6">
+                {row2.map((src, idx) => (
+                  <GalleryImage key={`r2-a-${idx}`} src={src} />
+                ))}
+              </div>
+              <div className="flex shrink-0 gap-6 pr-6">
+                {row2.map((src, idx) => (
+                  <GalleryImage key={`r2-b-${idx}`} src={src} />
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
@@ -1899,14 +1914,14 @@ const Footer = () => {
     <footer className="bg-[#B91C1C] text-white pt-24 pb-16 relative overflow-hidden border-t-4 border-dhaba-dark">
       {/* Retro Bumper Safety/Hazard Strip Divider */}
       <div className="absolute top-0 left-0 w-full h-[12px] hazard-strip border-b-3 border-dhaba-dark" />
-      
+
       {/* Decorative pulse for red background */}
       <div className="absolute top-[12px] left-0 w-full h-1 bg-white/10" />
 
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-16 relative z-10">
         <div className="grid md:grid-cols-4 gap-16 mb-16">
           <div className="col-span-2 min-w-0">
-            
+
             {/* Header section with Logo and Milestone and Taillights */}
             <div className="flex flex-wrap items-center justify-between gap-6 mb-8">
               <div className="flex items-center gap-4">
@@ -1915,7 +1930,7 @@ const Footer = () => {
                 </div>
                 <MilestoneIcon />
               </div>
-              
+
               {/* Retro Truck Taillight Cluster */}
               <div className="flex gap-2.5 bg-[#1C1917] p-2.5 rounded-xl border-3 border-dhaba-dark shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] select-none mr-2 scale-90 sm:scale-100">
                 <span className="w-4.5 h-4.5 rounded-full bg-dhaba-red shadow-[0_0_12px_#B91C1C,inset_0_2px_2px_rgba(255,255,255,0.4)] animate-pulse" title="Brake Light" />
@@ -1927,7 +1942,7 @@ const Footer = () => {
             <p className="text-white/85 max-w-md text-base leading-relaxed mb-8 font-medium">
               Redefining the Indian highway experience. We provide a premium sanctuary for travelers, blending traditional hospitality with modern luxury.
             </p>
-            
+
             {/* Social media links as Neo-Brutalist Yellow tiles */}
             <div className="flex gap-4">
               {[
@@ -1936,9 +1951,9 @@ const Footer = () => {
                 { name: "Call", icon: <Phone size={20} /> },
                 { name: "Clock", icon: <Clock size={20} /> }
               ].map((item, idx) => (
-                <a 
-                  key={idx} 
-                  href="#highlights" 
+                <a
+                  key={idx}
+                  href="#highlights"
                   className="w-11 h-11 bg-dhaba-mustard text-dhaba-dark border-2 border-dhaba-dark shadow-[3px_3px_0px_#1C1917] hover:shadow-[1px_1px_0px_#1C1917] hover:translate-x-[2px] hover:translate-y-[2px] active:scale-95 transition-all rounded-lg flex items-center justify-center"
                   title={item.name}
                 >
@@ -2012,10 +2027,10 @@ const Footer = () => {
           <p>© 2026 Highway Haven. NH-1's Premium Stopover. All rights reserved.</p>
           <p className="hover:text-white transition-colors duration-300">
             Mindfully Made By{" "}
-            <a 
-              href="https://scraft.studio/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://scraft.studio/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[#FEF08A] hover:underline font-black"
             >
               Scraft

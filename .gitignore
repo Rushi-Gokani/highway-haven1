@@ -4,10 +4,10 @@ dist/
 coverage/
 .DS_Store
 *.log
-.env*
 !.env.example
 
 # Build artifacts
 *.zip
 dist*.zip
 dist/
+config.bat
